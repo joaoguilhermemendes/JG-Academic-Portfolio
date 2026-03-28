@@ -92,7 +92,7 @@ export default function AllPosts() {
               >
                 <Link
                   to={pub.link || '#'}
-                  className="group flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-4 items-start py-7 border-b border-gray-50 dark:border-[#1a1a1a] hover:bg-gray-50/40 dark:hover:bg-white/5 transition-colors"
+                  className="group flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-4 items-start py-10 border-b border-gray-50 dark:border-[#1a1a1a] hover:bg-gray-50/40 dark:hover:bg-white/5 transition-colors"
                 >
                   {/* Mobile: compact header row */}
                   <div className="flex items-center justify-between w-full md:hidden">

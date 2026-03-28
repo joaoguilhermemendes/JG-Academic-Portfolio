@@ -87,7 +87,7 @@ export default function DataPulse() {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
             {active === 'all' ? (
-              <div className="flex flex-col gap-16">
+              <div className="flex flex-col gap-24">
                 {groups.map(grpId => {
                   const grpSkills = SKILLS.filter(s => s.id === grpId);
                   return (
@@ -160,7 +160,7 @@ function SkillRow({ skill, i, language }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.25, delay: i * 0.04 }}
-      className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-0 border-b border-[var(--color-border-subtle)] py-5 hover:bg-transparent transition-colors cursor-default"
+      className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-0 border-b border-[var(--color-border-subtle)] py-8 hover:bg-transparent transition-colors cursor-default"
     >
       <div className="flex items-baseline">
         <span className="text-[var(--color-text-muted)] text-[0.75rem] w-8 shrink-0 select-none group-hover:text-accent dark:group-hover:text-accent transition-colors">→</span>

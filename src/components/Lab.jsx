@@ -81,7 +81,7 @@ export default function Lab() {
           </motion.div>
 
           {/* 3-col project entries */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-16">
             {[...projectsData]
               .sort((a, b) => new Date(b.date) - new Date(a.date))
               .slice(0, 3)
@@ -111,7 +111,7 @@ export default function Lab() {
 
           {/* Publications List */}
           <motion.div {...fadeUp(0.3)}>
-            <div className="flex flex-col gap-y-10">
+            <div className="flex flex-col gap-y-16">
               {[...citationsData]
                 .sort((a, b) => new Date(b.date) - new Date(a.date))
                 .slice(0, 5)

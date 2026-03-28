@@ -50,7 +50,7 @@ export default function Timeline() {
         </motion.div>
 
         {/* Timeline List */}
-        <div className="flex flex-col gap-32 relative">
+        <div className="flex flex-col gap-y-48 relative">
           <div className="absolute lg:left-[calc(260px+4rem)] top-0 bottom-4 w-[1px] bg-accent hidden lg:block opacity-20" />
 
           {EVENTS.map((ev, idx) => (
