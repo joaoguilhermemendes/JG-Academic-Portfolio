@@ -54,7 +54,7 @@ export default function BlogPost() {
           </header>
 
           {/* Divider */}
-          <div className="text-gray-400 dark:text-gray-800 text-[0.7rem] overflow-hidden whitespace-nowrap select-none" style={{ marginBottom: '24px' }}>
+          <div className="opacity-10 text-[var(--color-text-primary)] text-[0.7rem] overflow-hidden whitespace-nowrap select-none" style={{ marginBottom: '24px' }}>
             {'-'.repeat(200)}
           </div>
 
@@ -67,7 +67,7 @@ export default function BlogPost() {
 
           {/* Footer / EOF */}
           <div style={{ marginTop: '64px' }}>
-            <div className="text-gray-400 dark:text-gray-800 text-[0.7rem] overflow-hidden whitespace-nowrap select-none" style={{ marginBottom: '16px' }}>
+            <div className="opacity-10 text-[var(--color-text-primary)] text-[0.7rem] overflow-hidden whitespace-nowrap select-none" style={{ marginBottom: '16px' }}>
               {'-'.repeat(100)}
             </div>
             <div className="flex justify-between items-center text-[0.65rem] tracking-[0.3em] font-black uppercase text-gray-500 dark:text-gray-500">

@@ -30,7 +30,7 @@ export default function Contact() {
               {t('contact.title')} <span className="text-accent italic">{t('contact.title_accent')}</span>
             </h2>
           </div>
-          <div className="meta-label text-gray-400 dark:text-gray-800 hidden md:block text-[0.6rem] tracking-[0.2em] font-bold">{t('contact.collab')}</div>
+          <div className="meta-label opacity-10 text-[var(--color-text-primary)] hidden md:block text-[0.6rem] tracking-[0.2em] font-bold">{t('contact.collab')}</div>
         </motion.div>
 
         {/* Contact links Grid */}
@@ -60,7 +60,7 @@ export default function Contact() {
         {/* Footer bar */}
         <motion.div
           {...fadeUp(0.5)}
-          className="flex flex-col md:flex-row justify-between items-center gap-12 pt-12 border-t border-gray-100 dark:border-[#222]"
+          className="flex flex-col md:flex-row justify-between items-center gap-12 pt-12 border-t border-[var(--color-border-subtle)]"
           style={{ marginTop: '0' }}
         >
           <div className="font-mono text-[0.65rem] text-[var(--color-text-dim)] tracking-[0.2em] font-bold">

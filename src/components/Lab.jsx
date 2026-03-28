@@ -20,7 +20,7 @@ function ProjectEntry({ project, idx, t, isPt }) {
   return (
     <motion.div
       {...fadeUp(0.1 + idx * 0.15)}
-      className="group relative flex flex-col border-t border-gray-100 dark:border-[#222] pt-10"
+      className="group relative flex flex-col border-t border-[var(--color-border-subtle)] pt-10"
     >
       <Link to={project.link} className="absolute inset-0 z-20" />
 
@@ -68,7 +68,7 @@ export default function Lab() {
           {/* Header */}
           <motion.div {...fadeUp(0)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10" style={{ marginBottom: '80px' }}>
             <div>
-              <div className="meta-label mb-6 text-gray-600 dark:text-gray-600">{t('lab.section_label')}</div>
+              <div className="meta-label mb-6 text-[var(--color-text-dim)]">{t('lab.section_label')}</div>
               <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
                 {t('lab.title')} <span className="text-accent">{t('lab.title_accent')}</span>
               </h2>
@@ -97,7 +97,7 @@ export default function Lab() {
           {/* Header */}
           <motion.div {...fadeUp(0.1)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10" style={{ marginBottom: '100px' }}>
             <div>
-              <div className="meta-label mb-6 text-gray-600 dark:text-gray-600">{t('pub.section_label')}</div>
+              <div className="meta-label mb-6 text-[var(--color-text-dim)]">{t('pub.section_label')}</div>
               <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
                 {t('pub.title')} <span className="text-accent">{t('pub.title_accent')}</span>
               </h2>

@@ -6,10 +6,11 @@
 @theme {
   --color-void: #ffffff;
   --color-surface: #fcfcfc;
-  --color-border: #eeeeee;
+  --color-border-subtle: #eeeeee;
+  --color-nav-bg: rgba(255, 255, 255, 0.95);
   --color-text-primary: #121212;
-  --color-text-muted: #444444;
-  --color-text-dim: #666666; /* Enhanced contrast for light mode */
+  --color-text-muted: #555555;
+  --color-text-dim: #666666;
   --color-accent: #ff3b30;
   --color-accent-dim: rgba(255, 59, 48, 0.05);
 
@@ -100,6 +101,9 @@ section {
 @layer base {
   .dark {
     --color-void: #0a0a0a;
+    --color-surface: #111111;
+    --color-border-subtle: #222222;
+    --color-nav-bg: rgba(10, 10, 10, 0.95);
     --color-text-primary: #ffffff;
     --color-text-muted: #a3a3a3;
     --color-text-dim: #999999;

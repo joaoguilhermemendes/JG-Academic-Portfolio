@@ -61,7 +61,7 @@ export default function AllProjects() {
         </div>
 
         {/* Desktop column headers */}
-        <div className="hidden md:grid grid-cols-12 gap-4 text-[0.6rem] text-[var(--color-text-muted)] font-black tracking-[0.35em] uppercase pb-4 border-b border-gray-100 dark:border-[#222]">
+        <div className="hidden md:grid grid-cols-12 gap-4 text-[0.6rem] text-[var(--color-text-muted)] font-black tracking-[0.35em] uppercase pb-4 border-b border-[var(--color-border-subtle)]">
           <span className="col-span-1">{t('allprojects.col_ref')}</span>
           <span className="col-span-5">{t('allprojects.col_id')}</span>
           <span className="col-span-3">{t('allprojects.col_domain')}</span>
@@ -142,7 +142,7 @@ export default function AllProjects() {
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
             transition={{ repeat: Infinity, duration: 1.1 }}
-            className="inline-block w-2 h-4 bg-black dark:bg-white align-middle"
+            className="inline-block w-2 h-4 bg-[var(--color-text-primary)] align-middle"
           />
         </div>
 

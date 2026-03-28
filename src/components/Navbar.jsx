@@ -20,7 +20,7 @@ export default function Navbar() {
     <>
       {/* ── Header bar ── */}
       <header
-        className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-md border-b border-gray-100 dark:border-[#222] transition-colors duration-300"
+        className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-nav-bg)] backdrop-blur-md border-b border-[var(--color-border-subtle)] transition-colors duration-300"
         style={{ padding: '20px 0' }}
       >
         <div className="container-main flex items-center justify-between">
@@ -37,7 +37,7 @@ export default function Navbar() {
                   {t(item.key)}
                 </a>
                 {idx < NAV_ITEMS.length - 1 && (
-                  <span className="text-gray-300 dark:text-[#222] hidden xl:block" style={{ fontSize: '0.8rem' }}>/</span>
+                  <span className="text-[var(--color-border-subtle)] hidden xl:block" style={{ fontSize: '0.8rem' }}>/</span>
                 )}
               </React.Fragment>
             ))}
@@ -54,21 +54,21 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className="block bg-black dark:bg-white transition-all duration-300"
+              className="block bg-[var(--color-text-primary)] transition-all duration-300"
               style={{
                 width: '24px', height: '2px',
                 transform: open ? 'rotate(45deg) translate(4px, 7px)' : 'none',
               }}
             />
             <span
-              className="block bg-black dark:bg-white transition-all duration-300"
+              className="block bg-[var(--color-text-primary)] transition-all duration-300"
               style={{
                 width: '24px', height: '2px',
                 opacity: open ? 0 : 1,
               }}
             />
             <span
-              className="block bg-black dark:bg-white transition-all duration-300"
+              className="block bg-[var(--color-text-primary)] transition-all duration-300"
               style={{
                 width: '24px', height: '2px',
                 transform: open ? 'rotate(-45deg) translate(4px, -7px)' : 'none',

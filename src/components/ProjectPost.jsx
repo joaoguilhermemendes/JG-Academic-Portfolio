@@ -66,7 +66,7 @@ export default function ProjectPost() {
           </div>
 
           {/* Two-Column Metadata */}
-          <div className="grid grid-cols-2 border-t border-b border-gray-200 dark:border-[#333] py-6 font-serif text-sm text-center" style={{ marginBottom: '64px', gap: '32px' }}>
+          <div className="grid grid-cols-2 border-t border-b border-[var(--color-border-subtle)] py-6 font-serif text-sm text-center" style={{ marginBottom: '64px', gap: '32px' }}>
             <div>
               <span className="block font-bold mb-2">{t('projectpost.status_label')}</span>
               <span className="font-mono text-xs uppercase tracking-widest text-accent">{project.status}</span>
@@ -78,7 +78,7 @@ export default function ProjectPost() {
           </div>
 
           {/* Main Body */}
-          <div className="text-base md:text-lg leading-loose text-justify font-serif text-gray-900 dark:text-gray-300">
+          <div className="text-base md:text-lg leading-loose text-justify font-serif text-[var(--color-text-primary)]">
             
             <h3 className="font-bold text-xl md:text-2xl tracking-tight" style={{ marginTop: '48px', marginBottom: '16px' }}>
               {t('projectpost.intro_heading')}
@@ -97,7 +97,7 @@ export default function ProjectPost() {
             {/* Figure Block */}
             {project.image && (
               <figure style={{ marginBottom: '80px' }}>
-                <div className="bg-gray-100 dark:bg-[#111] border border-gray-200 dark:border-[#333] p-2">
+                <div className="bg-[var(--color-surface)] border border-[var(--color-border-subtle)] p-2">
                   <img src={project.image} alt="Architecture diagram" className="w-full grayscale contrast-125" />
                 </div>
                 <figcaption className="text-center text-sm italic text-[var(--color-text-dim)]" style={{ marginTop: '24px' }}>
@@ -114,11 +114,11 @@ export default function ProjectPost() {
             </p>
 
             {/* References */}
-            <h3 className="font-bold text-xl md:text-2xl tracking-tight border-b border-gray-200 dark:border-[#333]" style={{ marginTop: '64px', marginBottom: '24px', paddingBottom: '16px' }}>
+            <h3 className="font-bold text-xl md:text-2xl tracking-tight border-b border-[var(--color-border-subtle)]" style={{ marginTop: '64px', marginBottom: '24px', paddingBottom: '16px' }}>
               {t('projectpost.refs_heading')}
             </h3>
             
-            <ol className="list-decimal pl-6 text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-400">
+            <ol className="list-decimal pl-6 text-sm md:text-base leading-relaxed text-[var(--color-text-muted)]">
               {project.github ? (
                 <li style={{ marginBottom: '24px' }}>
                   <a href={project.github} className="text-[var(--color-text-primary)] hover:underline" target="_blank" rel="noopener noreferrer">

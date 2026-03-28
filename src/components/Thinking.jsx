@@ -18,12 +18,12 @@ export default function Thinking() {
         {/* Header Section without border */}
         <motion.div {...fadeUp(0)} className="flex items-end justify-between" style={{ marginBottom: '80px' }}>
           <div>
-            <div className="meta-label mb-6 text-gray-600 dark:text-gray-600">{t('thinking.section_label')}</div>
+            <div className="meta-label mb-6 text-[var(--color-text-dim)]">{t('thinking.section_label')}</div>
             <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
               {t('thinking.title')} <span className="text-accent">{t('thinking.title_accent')}</span>
             </h2>
           </div>
-          <div className="meta-label text-gray-400 dark:text-gray-200 hidden md:block uppercase tracking-[0.2em]">{t('thinking.personal_statement')}</div>
+          <div className="meta-label text-[var(--color-text-muted)] hidden md:block uppercase tracking-[0.2em]">{t('thinking.personal_statement')}</div>
         </motion.div>
 
         {/* Bio text and Portrait System */}
@@ -57,7 +57,7 @@ export default function Thinking() {
               />
             </div>
             {/* Academic Caption */}
-            <div className="mt-4 flex justify-between items-center border-t-[2px] border-black dark:border-white pt-3 mb-2">
+            <div className="mt-4 flex justify-between items-center border-t-[2px] border-[var(--color-text-primary)] pt-3 mb-2">
               <span className="font-mono text-[0.65rem] text-[var(--color-text-primary)] font-bold tracking-widest uppercase">{t('thinking.based_in')}</span>
               <span className="font-mono text-[0.65rem] text-accent font-bold tracking-[0.3em] uppercase">{t('thinking.fig')}</span>
             </div>
@@ -70,7 +70,7 @@ export default function Thinking() {
 
         {/* Horizontal Field Domains */}
         <motion.div {...fadeUp(0.5)} className="w-full" style={{ marginTop: '80px' }}>
-          <div className="meta-label mb-16 text-gray-600 dark:text-gray-600">{t('pulse.areas_label')}</div>
+          <div className="meta-label mb-16 text-[var(--color-text-dim)]">{t('pulse.areas_label')}</div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
             {[
               { labelKey: 'pulse.area0.label', textKey: 'pulse.area0.text' },

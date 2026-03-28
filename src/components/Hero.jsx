@@ -129,7 +129,7 @@ export default function Hero() {
         </div>
 
         {/* Metadata Horizontal Bar (Locked to Bottom) */}
-        <motion.div {...fadeUp(0.25)} className="w-full grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 pt-10 border-t border-gray-100 dark:border-[#222] mt-auto">
+        <motion.div {...fadeUp(0.25)} className="w-full grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 pt-10 border-t border-[var(--color-border-subtle)] mt-auto">
           <div>
             <div className="meta-label mb-3 text-accent tracking-[0.3em]">{t('hero.current_node')}</div>
             <div className="text-[0.65rem] md:text-xs text-[var(--color-text-primary)] font-bold uppercase tracking-widest mb-1">Universidade Federal Fluminense (UFF)</div>

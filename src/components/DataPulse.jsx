@@ -92,7 +92,7 @@ export default function DataPulse() {
                   const grpSkills = SKILLS.filter(s => s.id === grpId);
                   return (
                     <div key={grpId}>
-                      <div className="text-[0.7rem] text-gray-600 dark:text-gray-600 tracking-[0.3em] mb-6 uppercase font-black">
+                      <div className="text-[0.7rem] text-[var(--color-text-dim)] tracking-[0.3em] mb-6 uppercase font-black">
                         {CATEGORY_LABEL[grpId]}
                       </div>
                       <div className="flex flex-col">
@@ -106,7 +106,7 @@ export default function DataPulse() {
               </div>
             ) : (
               <div>
-                <div className="text-[0.7rem] text-gray-600 dark:text-gray-600 tracking-[0.3em] mb-6 uppercase font-black">
+                <div className="text-[0.7rem] text-[var(--color-text-dim)] tracking-[0.3em] mb-6 uppercase font-black">
                   {CATEGORY_LABEL[active]}
                 </div>
                 <div className="flex flex-col">
@@ -127,13 +127,13 @@ export default function DataPulse() {
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
             transition={{ repeat: Infinity, duration: 1.1 }}
-            className="inline-block w-2 h-4 bg-black dark:bg-white align-middle"
+            className="inline-block w-2 h-4 bg-[var(--color-text-primary)] align-middle"
           />
         </div>
 
         {/* Areas of Exploration */}
         <motion.div className="w-full" style={{ marginTop: '80px' }}>
-          <div className="meta-label mb-16 text-gray-600 dark:text-gray-600">{t('pulse.areas_label')}</div>
+          <div className="meta-label mb-16 text-[var(--color-text-dim)]">{t('pulse.areas_label')}</div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
             {AREAS.map((area, i) => (
               <div key={i} className="flex flex-col gap-5 py-2 transition-colors group">
@@ -160,7 +160,7 @@ function SkillRow({ skill, i, language }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.25, delay: i * 0.04 }}
-      className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-0 border-b border-gray-200 dark:border-[#1a1a1a] py-5 hover:bg-transparent transition-colors cursor-default"
+      className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-0 border-b border-[var(--color-border-subtle)] py-5 hover:bg-transparent transition-colors cursor-default"
     >
       <div className="flex items-baseline">
         <span className="text-[var(--color-text-muted)] text-[0.75rem] w-8 shrink-0 select-none group-hover:text-accent dark:group-hover:text-accent transition-colors">→</span>
