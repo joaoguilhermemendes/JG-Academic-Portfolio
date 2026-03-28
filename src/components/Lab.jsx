@@ -63,7 +63,7 @@ export default function Lab() {
 
   return (
     <>
-      <section id="lab" className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+      <section id="lab" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
         <div className="container-main">
           {/* Header */}
           <motion.div {...fadeUp(0)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10" style={{ marginBottom: '80px' }}>
@@ -92,7 +92,7 @@ export default function Lab() {
         </div>
       </section>
 
-      <section id="publications" className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+      <section id="publications" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
         <div className="container-main">
           {/* Header */}
           <motion.div {...fadeUp(0.1)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10" style={{ marginBottom: '100px' }}>

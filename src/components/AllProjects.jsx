@@ -23,7 +23,7 @@ export default function AllProjects() {
   const resultLabel = filtered.length !== 1 ? t('page.result_plural') : t('page.result_singular');
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] font-mono transition-colors duration-300 pb-32">
+    <div className="min-h-screen font-mono transition-colors duration-300 pb-32">
       <div className="container-main" style={{ paddingTop: '120px' }}>
 
         {/* Back nav */}

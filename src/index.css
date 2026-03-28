@@ -99,6 +99,7 @@ section {
 /* Dark Mode Universal CSS Variable Overrides (Tailwind v4 native mapping) */
 @layer base {
   .dark {
+    --color-void: #0a0a0a;
     --color-black: #ffffff;
     --color-white: #0a0a0a;
     --color-gray-50: #111111;

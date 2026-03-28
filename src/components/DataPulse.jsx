@@ -48,7 +48,7 @@ export default function DataPulse() {
   const groups = ['data', 'research', 'engineering'];
 
   return (
-    <section id="pulse" className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+    <section id="pulse" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
       <div className="container-main font-mono">
 
         {/* Header block */}

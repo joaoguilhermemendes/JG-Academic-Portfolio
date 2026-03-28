@@ -13,7 +13,7 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-white dark:bg-[#0a0a0a] font-mono flex items-center justify-center text-[0.7rem] text-accent tracking-[0.3em] uppercase transition-colors">
+      <div className="min-h-screen font-mono flex items-center justify-center text-[0.7rem] text-accent tracking-[0.3em] uppercase transition-colors">
         404 // entry_not_found
       </div>
     );
@@ -24,7 +24,7 @@ export default function BlogPost() {
   const desc  = isPt && post.desc_pt  ? post.desc_pt  : post.desc;
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] font-mono text-black dark:text-white transition-colors duration-300">
+    <div className="min-h-screen font-mono text-black dark:text-white transition-colors duration-300">
       <article className="container-main" style={{ paddingTop: '160px', paddingBottom: '160px' }}>
         
         {/* Back Nav */}

@@ -13,7 +13,7 @@ export default function Thinking() {
   const { t } = useLanguage();
 
   return (
-    <section id="thinking" className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+    <section id="thinking" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
       <div className="container-main">
         {/* Header Section without border */}
         <motion.div {...fadeUp(0)} className="flex items-end justify-between" style={{ marginBottom: '80px' }}>

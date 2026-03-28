@@ -20,7 +20,7 @@ export default function Contact() {
   const { t } = useLanguage();
 
   return (
-    <footer id="contact" className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '20vh' }}>
+    <footer id="contact" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '20vh' }}>
       <div className="container-main">
         {/* Header */}
         <motion.div {...fadeUp(0)} className="flex items-end justify-between" style={{ marginBottom: '30px' }}>

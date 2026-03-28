@@ -13,7 +13,7 @@ export default function ProjectPost() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-white dark:bg-[#0a0a0a] font-mono flex items-center justify-center text-[0.7rem] text-accent tracking-[0.3em] uppercase transition-colors">
+      <div className="min-h-screen font-mono flex items-center justify-center text-[0.7rem] text-accent tracking-[0.3em] uppercase transition-colors">
         404 // project_not_found
       </div>
     );
@@ -24,7 +24,7 @@ export default function ProjectPost() {
   const desc  = isPt && project.desc_pt  ? project.desc_pt  : project.desc;
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-black dark:text-white font-serif transition-colors duration-300">
+    <div className="min-h-screen text-black dark:text-white font-serif transition-colors duration-300">
       <div className="container-main" style={{ paddingTop: '100px', paddingBottom: '160px' }}>
         
         {/* Back Nav */}

@@ -80,7 +80,7 @@ export default function Navbar() {
 
       {/* ── Full-screen mobile overlay ── */}
       <div
-        className="fixed inset-0 z-40 bg-white dark:bg-[#0a0a0a] flex flex-col transition-all duration-300 lg:hidden"
+        className="fixed inset-0 z-40 bg-[var(--color-void)] flex flex-col transition-all duration-300 lg:hidden"
         style={{
           opacity: open ? 1 : 0,
           pointerEvents: open ? 'auto' : 'none',

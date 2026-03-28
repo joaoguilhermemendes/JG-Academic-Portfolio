@@ -34,7 +34,7 @@ export default function Timeline() {
   ];
 
   return (
-    <section id="timeline" className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+    <section id="timeline" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
       <div className="container-main">
         {/* Header */}
         <motion.div {...fadeUp(0)} className="mb-32 flex items-end justify-between">
