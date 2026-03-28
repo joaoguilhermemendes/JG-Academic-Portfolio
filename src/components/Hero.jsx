@@ -65,7 +65,7 @@ function TypingScript() {
 
   return (
     <div className="w-full max-w-[420px] h-[320px] bg-transparent pl-4 relative flex flex-col justify-center pointer-events-none select-none">
-      <pre className="font-mono text-[0.65rem] md:text-xs text-gray-700 dark:text-gray-500 whitespace-pre-wrap break-all leading-relaxed">
+      <pre className="font-mono text-[0.65rem] md:text-xs text-[var(--color-text-dim)] whitespace-pre-wrap break-all leading-relaxed">
         <code dangerouslySetInnerHTML={{ __html: highlightPython(text) }} />
         <span className={`inline-block w-[8px] h-[14px] bg-accent align-middle ml-1 ${!isTyping ? 'animate-pulse' : ''}`} />
       </pre>
@@ -94,22 +94,22 @@ export default function Hero() {
               <div className="max-w-[85ch]">
                 <motion.h1 
                   {...fadeUp(0.1)}
-                  className="text-[4.5rem] md:text-[7.5rem] leading-[0.85] font-bold text-black dark:text-white mb-12"
+                  className="text-[4.5rem] md:text-[7.5rem] leading-[0.85] font-bold text-[var(--color-text-primary)] mb-12"
                   style={{ letterSpacing: '-0.06em' }}
                 >
                   João<br />Guilherme<br />Mendes<span className="text-accent">.</span>
                 </motion.h1>
 
-                <motion.p {...fadeUp(0.2)} className="text-xl md:text-2xl font-normal text-gray-800 dark:text-gray-300 leading-tight mb-0 max-w-[38ch]" dangerouslySetInnerHTML={{ __html: t('hero.description') }} />
+                <motion.p {...fadeUp(0.2)} className="text-xl md:text-2xl font-normal text-[var(--color-text-muted)] leading-tight mb-0 max-w-[38ch]" dangerouslySetInnerHTML={{ __html: t('hero.description') }} />
                 
                 <motion.div {...fadeUp(0.3)} className="flex flex-wrap items-center gap-8 sm:gap-12" style={{ marginTop: '48px' }}>
                   <a href="https://lattes.cnpq.br/9460711429082348" target="_blank" rel="noreferrer" className="btn-cv text-[0.8rem] px-6 py-3 font-mono tracking-widest font-bold transition-all uppercase cursor-pointer">
                     {t('hero.download_cv')}
                   </a>
-                  <a href="https://github.com/joaoguilhermemendes" target="_blank" rel="noreferrer" className="text-[0.8rem] font-mono tracking-widest font-bold text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-all uppercase">
+                  <a href="https://github.com/joaoguilhermemendes" target="_blank" rel="noreferrer" className="text-[0.8rem] font-mono tracking-widest font-bold text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)] transition-all uppercase">
                     GitHub
                   </a>
-                  <a href="https://www.linkedin.com/in/joao-guilherme-mendes/" target="_blank" rel="noreferrer" className="text-[0.8rem] font-mono tracking-widest font-bold text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-all uppercase">
+                  <a href="https://www.linkedin.com/in/joao-guilherme-mendes/" target="_blank" rel="noreferrer" className="text-[0.8rem] font-mono tracking-widest font-bold text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)] transition-all uppercase">
                     LinkedIn
                   </a>
                   <a href="#lab" className="text-[0.8rem] font-mono tracking-widest font-bold text-accent hover:text-black transition-all uppercase">
@@ -132,19 +132,19 @@ export default function Hero() {
         <motion.div {...fadeUp(0.25)} className="w-full grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 pt-10 border-t border-gray-100 dark:border-[#222] mt-auto">
           <div>
             <div className="meta-label mb-3 text-accent tracking-[0.3em]">{t('hero.current_node')}</div>
-            <div className="text-[0.65rem] md:text-xs text-black dark:text-white font-bold uppercase tracking-widest mb-1">Universidade Federal Fluminense (UFF)</div>
-            <div className="text-[0.65rem] text-gray-600 dark:text-gray-500 font-mono italic">BSc Computer Science</div>
+            <div className="text-[0.65rem] md:text-xs text-[var(--color-text-primary)] font-bold uppercase tracking-widest mb-1">Universidade Federal Fluminense (UFF)</div>
+            <div className="text-[0.65rem] text-[var(--color-text-dim)] font-mono italic">BSc Computer Science</div>
           </div>
           <div>
             <div className="meta-label mb-3 text-accent tracking-[0.3em]">{t('hero.status')}</div>
             <div className="flex items-center gap-4">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse shrink-0" />
-              <span className="text-[0.65rem] md:text-xs text-black dark:text-white font-bold uppercase tracking-widest">{t('hero.seeking')}</span>
+              <span className="text-[0.65rem] md:text-xs text-[var(--color-text-primary)] font-bold uppercase tracking-widest">{t('hero.seeking')}</span>
             </div>
           </div>
           <div>
              <div className="meta-label mb-3 text-accent tracking-[0.3em]">{t('hero.location')}</div>
-             <div className="text-[0.65rem] md:text-xs text-black dark:text-white font-bold uppercase tracking-widest">Cabo Frio, RJ, Brasil</div>
+             <div className="text-[0.65rem] md:text-xs text-[var(--color-text-primary)] font-bold uppercase tracking-widest">Cabo Frio, RJ, Brasil</div>
           </div>
         </motion.div>
         

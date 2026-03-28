@@ -31,7 +31,7 @@ export default function Navbar() {
               <React.Fragment key={item.key}>
                 <a
                   href={item.href}
-                  className="font-mono font-bold text-gray-600 dark:text-gray-500 hover:text-black dark:hover:text-white hover:no-underline transition-all uppercase"
+                  className="font-mono font-bold text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)] hover:no-underline transition-all uppercase"
                   style={{ fontSize: '0.8rem', letterSpacing: '0.05em' }}
                 >
                   {t(item.key)}
@@ -93,7 +93,7 @@ export default function Navbar() {
               key={item.key}
               href={item.href}
               onClick={close}
-              className="font-mono font-black text-black dark:text-white hover:text-accent dark:hover:text-accent uppercase transition-colors"
+              className="font-mono font-black text-[var(--color-text-primary)] hover:text-accent dark:hover:text-accent uppercase transition-colors"
               style={{ fontSize: '1.6rem', letterSpacing: '-0.02em' }}
             >
               {t(item.key)}

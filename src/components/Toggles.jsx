@@ -14,7 +14,7 @@ export default function Toggles() {
         className="w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-black border-2 border-black dark:border-white shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center cursor-pointer group"
         aria-label="Toggle Theme"
       >
-        <span className="text-base md:text-lg text-black dark:text-white group-hover:text-accent leading-none">
+        <span className="text-base md:text-lg text-[var(--color-text-primary)] group-hover:text-accent leading-none">
           {isDark ? '☀' : '☾'}
         </span>
       </button>
@@ -25,7 +25,7 @@ export default function Toggles() {
         className="w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-black border-2 border-black dark:border-white shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center cursor-pointer group"
         aria-label="Toggle Language"
       >
-        <span className="font-mono text-[0.65rem] md:text-xs font-bold text-black dark:text-white group-hover:text-accent">
+        <span className="font-mono text-[0.65rem] md:text-xs font-bold text-[var(--color-text-primary)] group-hover:text-accent">
           {lang === 'en' ? 'PT' : 'EN'}
         </span>
       </button>

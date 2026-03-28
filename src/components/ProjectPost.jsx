@@ -24,12 +24,12 @@ export default function ProjectPost() {
   const desc  = isPt && project.desc_pt  ? project.desc_pt  : project.desc;
 
   return (
-    <div className="min-h-screen text-black dark:text-white font-serif transition-colors duration-300">
+    <div className="min-h-screen text-[var(--color-text-primary)] font-serif transition-colors duration-300">
       <div className="container-main" style={{ paddingTop: '100px', paddingBottom: '160px' }}>
         
         {/* Back Nav */}
         <div style={{ marginBottom: '60px' }}>
-          <Link to="/projects" className="font-mono text-[0.65rem] text-gray-500 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors tracking-[0.2em] uppercase font-black flex items-center group" style={{ gap: '16px' }}>
+          <Link to="/projects" className="font-mono text-[0.65rem] text-gray-500 dark:text-gray-500 hover:text-[var(--color-text-primary)] transition-colors tracking-[0.2em] uppercase font-black flex items-center group" style={{ gap: '16px' }}>
             <span className="group-hover:-translate-x-1 transition-transform">←</span>
             {t('projectpost.back')}
           </Link>
@@ -43,11 +43,11 @@ export default function ProjectPost() {
               {title}
             </h1>
             
-            <div className="text-lg md:text-xl font-serif text-gray-800 dark:text-gray-300" style={{ marginBottom: '16px' }}>
+            <div className="text-lg md:text-xl font-serif text-[var(--color-text-muted)]" style={{ marginBottom: '16px' }}>
               <strong>J.G. Mendes</strong>
             </div>
 
-            <div className="text-sm font-serif text-gray-600 dark:text-gray-400 italic" style={{ marginBottom: '32px' }}>
+            <div className="text-sm font-serif text-[var(--color-text-dim)] italic" style={{ marginBottom: '32px' }}>
               {t('projectpost.department')}<br />
               <span className="font-mono text-[0.65rem] not-italic tracking-widest uppercase mt-4 block">
                 Technical Report {project.id} — {project.date || '2026.Q1'}
@@ -73,7 +73,7 @@ export default function ProjectPost() {
             </div>
             <div>
               <span className="block font-bold mb-2">{t('projectpost.domain_label')}</span>
-              <span className="font-mono text-xs uppercase tracking-widest text-gray-600 dark:text-gray-400">{tag}</span>
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-text-dim)]">{tag}</span>
             </div>
           </div>
 
@@ -100,7 +100,7 @@ export default function ProjectPost() {
                 <div className="bg-gray-100 dark:bg-[#111] border border-gray-200 dark:border-[#333] p-2">
                   <img src={project.image} alt="Architecture diagram" className="w-full grayscale contrast-125" />
                 </div>
-                <figcaption className="text-center text-sm italic text-gray-600 dark:text-gray-400" style={{ marginTop: '24px' }}>
+                <figcaption className="text-center text-sm italic text-[var(--color-text-dim)]" style={{ marginTop: '24px' }}>
                   <strong>Figure 1.</strong> {t('projectpost.figure_caption')}
                 </figcaption>
               </figure>
@@ -121,7 +121,7 @@ export default function ProjectPost() {
             <ol className="list-decimal pl-6 text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-400">
               {project.github ? (
                 <li style={{ marginBottom: '24px' }}>
-                  <a href={project.github} className="text-black dark:text-white hover:underline" target="_blank" rel="noopener noreferrer">
+                  <a href={project.github} className="text-[var(--color-text-primary)] hover:underline" target="_blank" rel="noopener noreferrer">
                     {t('projectpost.source_available')}
                   </a>
                 </li>

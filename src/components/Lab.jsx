@@ -26,7 +26,7 @@ function ProjectEntry({ project, idx, t, isPt }) {
 
       {/* Index + status row */}
       <div className="flex items-center justify-between mb-8">
-        <span className="font-mono text-[0.6rem] text-gray-400 dark:text-gray-700 font-black tracking-[0.4em]">
+        <span className="font-mono text-[0.6rem] text-[var(--color-text-muted)] font-black tracking-[0.4em]">
           #0{idx + 1}
         </span>
         <span className="font-mono text-[0.6rem] text-accent font-black tracking-[0.3em] uppercase">
@@ -35,22 +35,22 @@ function ProjectEntry({ project, idx, t, isPt }) {
       </div>
 
       {/* Title */}
-      <h3 className="font-mono text-2xl md:text-3xl font-black text-black dark:text-white leading-tight uppercase tracking-tighter group-hover:text-accent dark:group-hover:text-accent transition-colors" style={{ marginBottom: '20px' }}>
+      <h3 className="font-mono text-2xl md:text-3xl font-black text-[var(--color-text-primary)] leading-tight uppercase tracking-tighter group-hover:text-accent dark:group-hover:text-accent transition-colors" style={{ marginBottom: '20px' }}>
         {title}
       </h3>
 
       {/* Tag */}
-      <div className="font-mono text-[0.65rem] text-gray-500 dark:text-gray-600 font-black tracking-[0.3em] uppercase" style={{ marginBottom: '24px' }}>
+      <div className="font-mono text-[0.65rem] text-[var(--color-text-dim)] font-black tracking-[0.3em] uppercase" style={{ marginBottom: '24px' }}>
         #{tag}
       </div>
 
       {/* Description */}
-      <p className="font-mono text-[0.8rem] text-gray-600 dark:text-gray-400 leading-relaxed flex-1" style={{ marginBottom: '32px' }}>
+      <p className="font-mono text-[0.8rem] text-[var(--color-text-dim)] leading-relaxed flex-1" style={{ marginBottom: '32px' }}>
         {desc}
       </p>
 
       {/* CTA */}
-      <div className="mt-auto font-mono text-[0.65rem] font-black text-black dark:text-white uppercase tracking-[0.3em] group-hover:text-accent dark:group-hover:text-accent transition-colors flex items-center gap-3">
+      <div className="mt-auto font-mono text-[0.65rem] font-black text-[var(--color-text-primary)] uppercase tracking-[0.3em] group-hover:text-accent dark:group-hover:text-accent transition-colors flex items-center gap-3">
         {t('lab.view_case')} <span className="group-hover:translate-x-1 transition-transform">→</span>
       </div>
     </motion.div>
@@ -69,7 +69,7 @@ export default function Lab() {
           <motion.div {...fadeUp(0)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10" style={{ marginBottom: '80px' }}>
             <div>
               <div className="meta-label mb-6 text-gray-600 dark:text-gray-600">{t('lab.section_label')}</div>
-              <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-black dark:text-white uppercase">
+              <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
                 {t('lab.title')} <span className="text-accent">{t('lab.title_accent')}</span>
               </h2>
             </div>
@@ -98,13 +98,13 @@ export default function Lab() {
           <motion.div {...fadeUp(0.1)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10" style={{ marginBottom: '100px' }}>
             <div>
               <div className="meta-label mb-6 text-gray-600 dark:text-gray-600">{t('pub.section_label')}</div>
-              <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-black dark:text-white uppercase">
+              <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
                 {t('pub.title')} <span className="text-accent">{t('pub.title_accent')}</span>
               </h2>
             </div>
             {citationsData.length > 5 && (
-              <Link to="/posts" className="font-mono text-[0.7rem] text-black dark:text-white font-bold uppercase tracking-[0.2em] transition-colors hover:text-accent dark:hover:text-accent flex items-center gap-4 group pb-2">
-                {t('pub.view_all')} <span className="text-gray-600 dark:text-gray-500 group-hover:translate-x-2 transition-transform">→</span>
+              <Link to="/posts" className="font-mono text-[0.7rem] text-[var(--color-text-primary)] font-bold uppercase tracking-[0.2em] transition-colors hover:text-accent dark:hover:text-accent flex items-center gap-4 group pb-2">
+                {t('pub.view_all')} <span className="text-[var(--color-text-dim)] group-hover:translate-x-2 transition-transform">→</span>
               </Link>
             )}
           </motion.div>
@@ -117,16 +117,16 @@ export default function Lab() {
                 .slice(0, 5)
                 .map((pub, i) => (
                 <Link to={pub.link || '#'} key={i} className="flex flex-col md:flex-row gap-8 md:gap-24 items-start group hover:no-underline cursor-pointer">
-                  <span className="font-mono text-sm text-accent font-bold md:pt-1 transition-colors group-hover:text-black dark:group-hover:text-white">{pub.year}</span>
+                  <span className="font-mono text-sm text-accent font-bold md:pt-1 transition-colors group-hover:text-[var(--color-text-primary)]">{pub.year}</span>
                   <div className="flex-1 max-w-[65ch]">
-                    <div className="text-xl md:text-2xl font-bold text-black dark:text-white transition-all duration-300 font-mono leading-tight mb-4 group-hover:text-accent dark:group-hover:text-accent">
+                    <div className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)] transition-all duration-300 font-mono leading-tight mb-4 group-hover:text-accent dark:group-hover:text-accent">
                       {isPt && pub.title_pt ? pub.title_pt : pub.title}
                     </div>
-                    <div className="text-[0.7rem] text-gray-600 dark:text-gray-500 font-mono italic uppercase tracking-[0.2em] transition-colors group-hover:text-black dark:group-hover:text-white">
+                    <div className="text-[0.7rem] text-[var(--color-text-dim)] font-mono italic uppercase tracking-[0.2em] transition-colors group-hover:text-[var(--color-text-primary)]">
                       {isPt && pub.venue_pt ? pub.venue_pt : pub.venue}
                     </div>
                   </div>
-                  <div className="font-mono text-[0.65rem] text-gray-500 dark:text-gray-600 uppercase tracking-widest pt-1 mt-4 md:mt-0 transition-colors flex items-center gap-4 group-hover:text-accent">
+                  <div className="font-mono text-[0.65rem] text-[var(--color-text-dim)] uppercase tracking-widest pt-1 mt-4 md:mt-0 transition-colors flex items-center gap-4 group-hover:text-accent">
                     {pub.code} <span className="opacity-0 group-hover:opacity-100 transition-opacity text-base translate-y-[1px] font-sans">→</span>
                   </div>
                 </Link>

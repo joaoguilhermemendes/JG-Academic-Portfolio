@@ -19,7 +19,7 @@ export default function Thinking() {
         <motion.div {...fadeUp(0)} className="flex items-end justify-between" style={{ marginBottom: '80px' }}>
           <div>
             <div className="meta-label mb-6 text-gray-600 dark:text-gray-600">{t('thinking.section_label')}</div>
-            <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-black dark:text-white uppercase">
+            <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
               {t('thinking.title')} <span className="text-accent">{t('thinking.title_accent')}</span>
             </h2>
           </div>
@@ -39,7 +39,7 @@ export default function Thinking() {
             
             <motion.p 
               {...fadeUp(0.2)} 
-              className="text-xl md:text-2xl font-normal text-gray-600 dark:text-gray-400 leading-relaxed font-sans"
+              className="text-xl md:text-2xl font-normal text-[var(--color-text-dim)] leading-relaxed font-sans"
               dangerouslySetInnerHTML={{ __html: t('thinking.body') }}
             />
           </div>
@@ -58,10 +58,10 @@ export default function Thinking() {
             </div>
             {/* Academic Caption */}
             <div className="mt-4 flex justify-between items-center border-t-[2px] border-black dark:border-white pt-3 mb-2">
-              <span className="font-mono text-[0.65rem] text-black dark:text-white font-bold tracking-widest uppercase">{t('thinking.based_in')}</span>
+              <span className="font-mono text-[0.65rem] text-[var(--color-text-primary)] font-bold tracking-widest uppercase">{t('thinking.based_in')}</span>
               <span className="font-mono text-[0.65rem] text-accent font-bold tracking-[0.3em] uppercase">{t('thinking.fig')}</span>
             </div>
-            <div className="font-mono text-gray-500 dark:text-gray-400 text-[0.65rem] leading-snug italic">
+            <div className="font-mono text-[var(--color-text-dim)] text-[0.65rem] leading-snug italic">
               {t('thinking.hint')}
             </div>
           </motion.div>
@@ -81,7 +81,7 @@ export default function Thinking() {
                  <div className="flex items-center gap-4">
                     <span className="font-mono text-[0.65rem] font-bold text-accent tracking-[0.2em] uppercase">{t(m.labelKey)}</span>
                  </div>
-                 <p className="text-black dark:text-white font-bold font-mono text-xl lg:text-2xl uppercase tracking-tighter leading-tight group-hover:text-accent transition-colors">
+                 <p className="text-[var(--color-text-primary)] font-bold font-mono text-xl lg:text-2xl uppercase tracking-tighter leading-tight group-hover:text-accent transition-colors">
                     {t(m.textKey)}
                  </p>
               </div>

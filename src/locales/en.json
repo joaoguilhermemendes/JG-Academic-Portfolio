@@ -74,8 +74,8 @@
   "contact.lattes_meta": "Currículo Lattes",
   "contact.email_meta": "joaoguilhermemendes@id.uff.br",
 
-  "thinking.intro": "I'm <strong class=\"font-bold text-black dark:text-white font-mono tracking-tighter uppercase\">João Guilherme</strong> — a Software Developer building AI solutions, and a Computer Science student at UFF.",
-  "thinking.body": "I currently integrate AI models into marketing and web flows at my day job. Simultaneously, my academic journey is heavily focused on <em class=\"italic text-black dark:text-white font-semibold\">data science and SQL architecture</em>. I am actively exploring real-world applications of these concepts through research and independent projects.",
+  "thinking.intro": "I'm <strong class=\"font-bold text-[var(--color-text-primary)] font-mono tracking-tighter uppercase\">João Guilherme</strong> — a Software Developer building AI solutions, and a Computer Science student at UFF.",
+  "thinking.body": "I currently integrate AI models into marketing and web flows at my day job. Simultaneously, my academic journey is heavily focused on <em class=\"italic text-[var(--color-text-primary)] font-semibold\">data science and SQL architecture</em>. I am actively exploring real-world applications of these concepts through research and independent projects.",
   "thinking.section_label": "003.5 / ABOUT ME",
   "thinking.title": "Current",
   "thinking.title_accent": "Focus",

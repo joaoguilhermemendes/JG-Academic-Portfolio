@@ -54,7 +54,7 @@ export default function DataPulse() {
         {/* Header block */}
         <div style={{ marginBottom: '60px' }}>
           <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-4 uppercase">{t('pulse.section_label')}</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-black dark:text-white uppercase leading-[0.9] mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9] mb-6">
             {t('pulse.title')} <span className="text-accent italic">{t('pulse.title_accent')}</span>
           </h2>
           {/* Filter nav */}
@@ -63,12 +63,12 @@ export default function DataPulse() {
               <button
                 key={s.id}
                 onClick={() => setActive(s.id)}
-                className={`transition-colors ${active === s.id ? 'text-accent' : 'text-gray-500 dark:text-gray-600 hover:text-black dark:hover:text-white'}`}
+                className={`transition-colors ${active === s.id ? 'text-accent' : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)]'}`}
               >
                 {t(s.labelKey)}
               </button>
             ))}
-            <span className="ml-auto text-[0.6rem] text-gray-400 dark:text-gray-700 hidden md:block">
+            <span className="ml-auto text-[0.6rem] text-[var(--color-text-muted)] hidden md:block">
               {filtered.length}{t('pulse.entries_found')}
             </span>
           </div>
@@ -121,7 +121,7 @@ export default function DataPulse() {
 
         {/* Bottom line */}
         <div className="w-full h-px bg-gray-200 dark:bg-[#1e1e1e] mb-6" />
-        <div className="flex items-center gap-3 text-[0.75rem] text-gray-500 dark:text-gray-600">
+        <div className="flex items-center gap-3 text-[0.75rem] text-[var(--color-text-dim)]">
           <span className="text-accent font-black">joao@portfolio</span>
           <span>:~/skills$</span>
           <motion.span
@@ -140,7 +140,7 @@ export default function DataPulse() {
                 <div className="flex items-center gap-4">
                   <span className="font-mono text-[0.65rem] font-bold text-accent tracking-[0.2em] uppercase">{t(area.labelKey)}</span>
                 </div>
-                <p className="text-black dark:text-white font-bold font-mono text-xl lg:text-2xl uppercase tracking-tighter leading-tight group-hover:text-accent transition-colors">
+                <p className="text-[var(--color-text-primary)] font-bold font-mono text-xl lg:text-2xl uppercase tracking-tighter leading-tight group-hover:text-accent transition-colors">
                   {t(area.textKey)}
                 </p>
               </div>
@@ -163,17 +163,17 @@ function SkillRow({ skill, i, language }) {
       className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-0 border-b border-gray-200 dark:border-[#1a1a1a] py-5 hover:bg-transparent transition-colors cursor-default"
     >
       <div className="flex items-baseline">
-        <span className="text-gray-400 dark:text-gray-700 text-[0.75rem] w-8 shrink-0 select-none group-hover:text-accent dark:group-hover:text-accent transition-colors">→</span>
-        <span className="text-[1rem] md:text-[1.1rem] font-black text-black dark:text-white uppercase tracking-tight group-hover:text-accent dark:group-hover:text-accent transition-colors md:w-64 shrink-0">
+        <span className="text-[var(--color-text-muted)] text-[0.75rem] w-8 shrink-0 select-none group-hover:text-accent dark:group-hover:text-accent transition-colors">→</span>
+        <span className="text-[1rem] md:text-[1.1rem] font-black text-[var(--color-text-primary)] uppercase tracking-tight group-hover:text-accent dark:group-hover:text-accent transition-colors md:w-64 shrink-0">
           {skill.name}
         </span>
       </div>
 
-      <span className="text-[0.7rem] text-gray-500 dark:text-gray-600 w-40 shrink-0 hidden md:block">
+      <span className="text-[0.7rem] text-[var(--color-text-dim)] w-40 shrink-0 hidden md:block">
         {skill.meta}
       </span>
 
-      <span className="text-[0.8rem] text-gray-600 dark:text-gray-500 leading-snug group-hover:text-black dark:group-hover:text-gray-300 transition-colors pl-8 md:pl-0">
+      <span className="text-[0.8rem] text-[var(--color-text-dim)] leading-snug group-hover:text-black dark:group-hover:text-gray-300 transition-colors pl-8 md:pl-0">
         {note}
       </span>
     </motion.div>

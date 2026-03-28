@@ -40,7 +40,7 @@ export default function Timeline() {
         <motion.div {...fadeUp(0)} className="mb-32 flex items-end justify-between">
           <div>
             <div className="meta-label mb-6 text-gray-600 dark:text-gray-600">{t('timeline.section_label')}</div>
-            <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-black dark:text-white uppercase">
+            <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
               {t('timeline.title')} <span className="text-accent">{t('timeline.title_accent')}</span>
             </h2>
           </div>
@@ -64,8 +64,8 @@ export default function Timeline() {
 
               {/* Info Column */}
               <div className="flex-1">
-                <h3 className="font-mono text-3xl font-bold text-black dark:text-white mb-6 uppercase tracking-tight">{t(ev.titleKey)}</h3>
-                <div className="font-mono text-[0.8rem] text-gray-600 dark:text-gray-500 font-bold tracking-[0.2em] mb-10 uppercase inline-block">
+                <h3 className="font-mono text-3xl font-bold text-[var(--color-text-primary)] mb-6 uppercase tracking-tight">{t(ev.titleKey)}</h3>
+                <div className="font-mono text-[0.8rem] text-[var(--color-text-dim)] font-bold tracking-[0.2em] mb-10 uppercase inline-block">
                   @ {t(ev.institutionKey)}
                 </div>
                 <p className="text-xl text-gray-700 dark:text-gray-400 leading-relaxed max-w-[55ch] font-normal">

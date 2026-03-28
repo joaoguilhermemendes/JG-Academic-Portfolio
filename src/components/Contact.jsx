@@ -26,7 +26,7 @@ export default function Contact() {
         <motion.div {...fadeUp(0)} className="flex items-end justify-between" style={{ marginBottom: '30px' }}>
           <div>
             <div className="meta-label mb-2 text-accent font-bold tracking-[0.3em] text-[0.65rem]">{t('contact.section_label')}</div>
-            <h2 className="text-4xl md:text-6xl font-bold font-mono tracking-tighter text-black dark:text-white uppercase leading-tight">
+            <h2 className="text-4xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase leading-tight">
               {t('contact.title')} <span className="text-accent italic">{t('contact.title_accent')}</span>
             </h2>
           </div>
@@ -44,10 +44,10 @@ export default function Contact() {
               rel="noreferrer"
               className="group flex flex-col gap-4 py-2 transition-all"
             >
-              <div className="font-mono text-[0.65rem] text-gray-500 dark:text-gray-600 tracking-[0.3em] font-black uppercase group-hover:text-accent dark:group-hover:text-accent transition-colors">
+              <div className="font-mono text-[0.65rem] text-[var(--color-text-dim)] tracking-[0.3em] font-black uppercase group-hover:text-accent dark:group-hover:text-accent transition-colors">
                 {link.label}
               </div>
-              <div className="font-mono text-2xl md:text-3xl font-black text-black dark:text-white tracking-tighter group-hover:text-accent dark:group-hover:text-accent transition-colors truncate">
+              <div className="font-mono text-2xl md:text-3xl font-black text-[var(--color-text-primary)] tracking-tighter group-hover:text-accent dark:group-hover:text-accent transition-colors truncate">
                 {t(link.labelKey)}
               </div>
             </motion.a>
@@ -63,10 +63,10 @@ export default function Contact() {
           className="flex flex-col md:flex-row justify-between items-center gap-12 pt-12 border-t border-gray-100 dark:border-[#222]"
           style={{ marginTop: '0' }}
         >
-          <div className="font-mono text-[0.65rem] text-gray-500 dark:text-gray-600 tracking-[0.2em] font-bold">
+          <div className="font-mono text-[0.65rem] text-[var(--color-text-dim)] tracking-[0.2em] font-bold">
             {t('contact.footer')}
           </div>
-          <div className="font-mono text-[0.6rem] text-gray-500 dark:text-gray-600 tracking-[0.2em] flex items-center gap-8">
+          <div className="font-mono text-[0.6rem] text-[var(--color-text-dim)] tracking-[0.2em] flex items-center gap-8">
             <span className="text-accent font-bold">{t('contact.university')}</span>
           </div>
         </motion.div>

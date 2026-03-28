@@ -24,7 +24,7 @@ export default function BlogPost() {
   const desc  = isPt && post.desc_pt  ? post.desc_pt  : post.desc;
 
   return (
-    <div className="min-h-screen font-mono text-black dark:text-white transition-colors duration-300">
+    <div className="min-h-screen font-mono text-[var(--color-text-primary)] transition-colors duration-300">
       <article className="container-main" style={{ paddingTop: '160px', paddingBottom: '160px' }}>
         
         {/* Back Nav */}
@@ -46,7 +46,7 @@ export default function BlogPost() {
               {title}
             </h1>
 
-            <div className="flex flex-col text-[0.75rem] text-gray-600 dark:text-gray-400 uppercase tracking-widest" style={{ gap: '8px', marginBottom: '16px' }}>
+            <div className="flex flex-col text-[0.75rem] text-[var(--color-text-dim)] uppercase tracking-widest" style={{ gap: '8px', marginBottom: '16px' }}>
               <div>{t('blogpost.date_label')} {post.date || post.year}</div>
               {venue && <div>{t('blogpost.venue_label')} {venue}</div>}
               <div>{t('blogpost.author_label')} J.G. Mendes</div>
@@ -59,7 +59,7 @@ export default function BlogPost() {
           </div>
 
           {/* Main Content */}
-          <div className="text-[0.85rem] md:text-[0.95rem] leading-[2] text-gray-800 dark:text-gray-300">
+          <div className="text-[0.85rem] md:text-[0.95rem] leading-[2] text-[var(--color-text-muted)]">
             <p style={{ marginBottom: '24px' }}>
               {desc}
             </p>
