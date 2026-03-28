@@ -28,7 +28,7 @@ export default function AllProjects() {
 
         {/* Back nav */}
         <div className="mb-12">
-          <Link to="/" className="text-[0.7rem] text-gray-300 dark:text-gray-600 hover:text-accent transition-colors tracking-[0.3em] uppercase font-black flex items-center gap-4 group">
+          <Link to="/" className="text-[0.7rem] text-gray-500 dark:text-gray-600 hover:text-accent transition-colors tracking-[0.3em] uppercase font-black flex items-center gap-4 group">
             <span className="group-hover:-translate-x-1 transition-transform text-accent">←</span>
             {t('page.back_root')}
           </Link>
@@ -49,19 +49,19 @@ export default function AllProjects() {
               <button
                 key={tag}
                 onClick={() => setFilter(tag)}
-                className={`transition-colors ${filter === tag ? 'text-accent' : 'text-gray-300 dark:text-gray-600 hover:text-black dark:hover:text-white'}`}
+                className={`transition-colors ${filter === tag ? 'text-accent' : 'text-gray-500 dark:text-gray-600 hover:text-black dark:hover:text-white'}`}
               >
                 [{tag === 'ALL' ? t('allprojects.all_filter').toLowerCase() : tag.toLowerCase().replace(/ /g, '-')}]
               </button>
             ))}
-            <span className="ml-auto text-[0.6rem] text-gray-200 dark:text-gray-700 self-center hidden sm:block">
+            <span className="ml-auto text-[0.6rem] text-gray-400 dark:text-gray-700 self-center hidden sm:block">
               {filtered.length} {resultLabel}
             </span>
           </div>
         </div>
 
         {/* Desktop column headers */}
-        <div className="hidden md:grid grid-cols-12 gap-4 text-[0.6rem] text-gray-200 dark:text-gray-700 font-black tracking-[0.35em] uppercase pb-4 border-b border-gray-100 dark:border-[#222]">
+        <div className="hidden md:grid grid-cols-12 gap-4 text-[0.6rem] text-gray-400 dark:text-gray-700 font-black tracking-[0.35em] uppercase pb-4 border-b border-gray-100 dark:border-[#222]">
           <span className="col-span-1">{t('allprojects.col_ref')}</span>
           <span className="col-span-5">{t('allprojects.col_id')}</span>
           <span className="col-span-3">{t('allprojects.col_domain')}</span>
@@ -95,12 +95,12 @@ export default function AllProjects() {
                   >
                     {/* Mobile compact row header */}
                     <div className="flex items-center justify-between w-full md:hidden">
-                      <span className="text-[0.6rem] text-gray-300 dark:text-gray-600">#{String(i + 1).padStart(2, '0')}</span>
+                      <span className="text-[0.6rem] text-gray-500 dark:text-gray-600">#{String(i + 1).padStart(2, '0')}</span>
                       <span className="text-[0.6rem] text-accent font-black tracking-widest uppercase">{project.status} →</span>
                     </div>
 
                     {/* REF — desktop */}
-                    <span className="hidden md:block col-span-1 text-[0.65rem] text-gray-200 dark:text-gray-700 group-hover:text-accent transition-colors pt-1">
+                    <span className="hidden md:block col-span-1 text-[0.65rem] text-gray-400 dark:text-gray-700 group-hover:text-accent transition-colors pt-1">
                       #{String(i + 1).padStart(2, '0')}
                     </span>
 
@@ -109,18 +109,18 @@ export default function AllProjects() {
                       <span className="text-[0.9rem] md:text-[1.05rem] font-black text-black dark:text-white uppercase tracking-tight leading-tight group-hover:text-accent transition-colors">
                         {getTitle(project)}
                       </span>
-                      <span className="text-[0.7rem] text-gray-400 dark:text-gray-500 leading-snug">
+                      <span className="text-[0.7rem] text-gray-600 dark:text-gray-500 leading-snug">
                         {getDesc(project)}
                       </span>
                     </div>
 
                     {/* Domain */}
-                    <span className="text-[0.65rem] text-gray-400 dark:text-gray-500 tracking-[0.1em] uppercase md:col-span-3 pt-0 md:pt-1">
+                    <span className="text-[0.65rem] text-gray-600 dark:text-gray-500 tracking-[0.1em] uppercase md:col-span-3 pt-0 md:pt-1">
                       {getTag(project)}
                     </span>
 
                     {/* Period */}
-                    <span className="text-[0.65rem] text-gray-300 dark:text-gray-600 md:col-span-2 md:pt-1">
+                    <span className="text-[0.65rem] text-gray-400 dark:text-gray-600 md:col-span-2 md:pt-1">
                       {year}.{q}
                     </span>
 
@@ -136,7 +136,7 @@ export default function AllProjects() {
         </AnimatePresence>
 
         {/* Terminal footer */}
-        <div className="mt-12 flex items-center gap-3 text-[0.75rem] text-gray-300 dark:text-gray-600">
+        <div className="mt-12 flex items-center gap-3 text-[0.75rem] text-gray-500 dark:text-gray-600">
           <span className="text-accent font-black">joao@portfolio</span>
           <span>:~/projects$</span>
           <motion.span

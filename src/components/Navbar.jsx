@@ -31,13 +31,13 @@ export default function Navbar() {
               <React.Fragment key={item.key}>
                 <a
                   href={item.href}
-                  className="font-mono font-bold text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white hover:no-underline transition-all uppercase"
+                  className="font-mono font-bold text-gray-600 dark:text-gray-500 hover:text-black dark:hover:text-white hover:no-underline transition-all uppercase"
                   style={{ fontSize: '0.8rem', letterSpacing: '0.05em' }}
                 >
                   {t(item.key)}
                 </a>
                 {idx < NAV_ITEMS.length - 1 && (
-                  <span className="text-gray-100 dark:text-[#222] hidden xl:block" style={{ fontSize: '0.8rem' }}>/</span>
+                  <span className="text-gray-300 dark:text-[#222] hidden xl:block" style={{ fontSize: '0.8rem' }}>/</span>
                 )}
               </React.Fragment>
             ))}

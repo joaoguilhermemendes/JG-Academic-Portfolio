@@ -63,19 +63,19 @@ export default function DataPulse() {
               <button
                 key={s.id}
                 onClick={() => setActive(s.id)}
-                className={`transition-colors ${active === s.id ? 'text-accent' : 'text-gray-300 dark:text-gray-600 hover:text-black dark:hover:text-white'}`}
+                className={`transition-colors ${active === s.id ? 'text-accent' : 'text-gray-500 dark:text-gray-600 hover:text-black dark:hover:text-white'}`}
               >
                 {t(s.labelKey)}
               </button>
             ))}
-            <span className="ml-auto text-[0.6rem] text-gray-200 dark:text-gray-700 hidden md:block">
+            <span className="ml-auto text-[0.6rem] text-gray-400 dark:text-gray-700 hidden md:block">
               {filtered.length}{t('pulse.entries_found')}
             </span>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-gray-100 dark:bg-[#1e1e1e] mb-12" />
+        <div className="w-full h-px bg-gray-200 dark:bg-[#1e1e1e] mb-12" />
 
         {/* Skill Content */}
         <AnimatePresence mode="wait">
@@ -92,7 +92,7 @@ export default function DataPulse() {
                   const grpSkills = SKILLS.filter(s => s.id === grpId);
                   return (
                     <div key={grpId}>
-                      <div className="text-[0.7rem] text-gray-400 dark:text-gray-600 tracking-[0.3em] mb-6 uppercase font-black">
+                      <div className="text-[0.7rem] text-gray-600 dark:text-gray-600 tracking-[0.3em] mb-6 uppercase font-black">
                         {CATEGORY_LABEL[grpId]}
                       </div>
                       <div className="flex flex-col">
@@ -106,7 +106,7 @@ export default function DataPulse() {
               </div>
             ) : (
               <div>
-                <div className="text-[0.7rem] text-gray-400 dark:text-gray-600 tracking-[0.3em] mb-6 uppercase font-black">
+                <div className="text-[0.7rem] text-gray-600 dark:text-gray-600 tracking-[0.3em] mb-6 uppercase font-black">
                   {CATEGORY_LABEL[active]}
                 </div>
                 <div className="flex flex-col">
@@ -120,8 +120,8 @@ export default function DataPulse() {
         </AnimatePresence>
 
         {/* Bottom line */}
-        <div className="w-full h-px bg-gray-100 dark:bg-[#1e1e1e] mb-6" />
-        <div className="flex items-center gap-3 text-[0.75rem] text-gray-300 dark:text-gray-600">
+        <div className="w-full h-px bg-gray-200 dark:bg-[#1e1e1e] mb-6" />
+        <div className="flex items-center gap-3 text-[0.75rem] text-gray-500 dark:text-gray-600">
           <span className="text-accent font-black">joao@portfolio</span>
           <span>:~/skills$</span>
           <motion.span
@@ -133,7 +133,7 @@ export default function DataPulse() {
 
         {/* Areas of Exploration */}
         <motion.div className="w-full" style={{ marginTop: '80px' }}>
-          <div className="meta-label mb-16 text-gray-400 dark:text-gray-600">{t('pulse.areas_label')}</div>
+          <div className="meta-label mb-16 text-gray-600 dark:text-gray-600">{t('pulse.areas_label')}</div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
             {AREAS.map((area, i) => (
               <div key={i} className="flex flex-col gap-5 py-2 transition-colors group">
@@ -160,19 +160,20 @@ function SkillRow({ skill, i, language }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.25, delay: i * 0.04 }}
-      className="group flex items-baseline gap-0 border-b border-gray-50 dark:border-[#1a1a1a] py-5 hover:bg-transparent transition-colors cursor-default"
+      className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-0 border-b border-gray-200 dark:border-[#1a1a1a] py-5 hover:bg-transparent transition-colors cursor-default"
     >
-      <span className="text-gray-200 dark:text-gray-700 text-[0.75rem] w-8 shrink-0 select-none group-hover:text-accent dark:group-hover:text-accent transition-colors">→</span>
+      <div className="flex items-baseline">
+        <span className="text-gray-400 dark:text-gray-700 text-[0.75rem] w-8 shrink-0 select-none group-hover:text-accent dark:group-hover:text-accent transition-colors">→</span>
+        <span className="text-[1rem] md:text-[1.1rem] font-black text-black dark:text-white uppercase tracking-tight group-hover:text-accent dark:group-hover:text-accent transition-colors md:w-64 shrink-0">
+          {skill.name}
+        </span>
+      </div>
 
-      <span className="text-[1rem] md:text-[1.1rem] font-black text-black dark:text-white uppercase tracking-tight group-hover:text-accent dark:group-hover:text-accent transition-colors w-64 shrink-0">
-        {skill.name}
-      </span>
-
-      <span className="text-[0.7rem] text-gray-300 dark:text-gray-600 w-40 shrink-0 hidden md:block">
+      <span className="text-[0.7rem] text-gray-500 dark:text-gray-600 w-40 shrink-0 hidden md:block">
         {skill.meta}
       </span>
 
-      <span className="text-[0.8rem] text-gray-400 dark:text-gray-500 leading-snug group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+      <span className="text-[0.8rem] text-gray-600 dark:text-gray-500 leading-snug group-hover:text-black dark:group-hover:text-gray-300 transition-colors pl-8 md:pl-0">
         {note}
       </span>
     </motion.div>

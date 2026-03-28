@@ -65,7 +65,7 @@ function TypingScript() {
 
   return (
     <div className="w-full max-w-[420px] h-[320px] bg-transparent pl-4 relative flex flex-col justify-center pointer-events-none select-none">
-      <pre className="font-mono text-[0.65rem] md:text-xs text-gray-500 whitespace-pre-wrap break-all leading-relaxed">
+      <pre className="font-mono text-[0.65rem] md:text-xs text-gray-700 dark:text-gray-500 whitespace-pre-wrap break-all leading-relaxed">
         <code dangerouslySetInnerHTML={{ __html: highlightPython(text) }} />
         <span className={`inline-block w-[8px] h-[14px] bg-accent align-middle ml-1 ${!isTyping ? 'animate-pulse' : ''}`} />
       </pre>
@@ -106,10 +106,10 @@ export default function Hero() {
                   <a href="https://lattes.cnpq.br/9460711429082348" target="_blank" rel="noreferrer" className="btn-cv text-[0.8rem] px-6 py-3 font-mono tracking-widest font-bold transition-all uppercase cursor-pointer">
                     {t('hero.download_cv')}
                   </a>
-                  <a href="https://github.com/joaoguilhermemendes" target="_blank" rel="noreferrer" className="text-[0.8rem] font-mono tracking-widest font-bold text-gray-400 hover:text-black transition-all uppercase">
+                  <a href="https://github.com/joaoguilhermemendes" target="_blank" rel="noreferrer" className="text-[0.8rem] font-mono tracking-widest font-bold text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-all uppercase">
                     GitHub
                   </a>
-                  <a href="https://www.linkedin.com/in/joao-guilherme-mendes/" target="_blank" rel="noreferrer" className="text-[0.8rem] font-mono tracking-widest font-bold text-gray-400 hover:text-black transition-all uppercase">
+                  <a href="https://www.linkedin.com/in/joao-guilherme-mendes/" target="_blank" rel="noreferrer" className="text-[0.8rem] font-mono tracking-widest font-bold text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-all uppercase">
                     LinkedIn
                   </a>
                   <a href="#lab" className="text-[0.8rem] font-mono tracking-widest font-bold text-accent hover:text-black transition-all uppercase">
@@ -133,7 +133,7 @@ export default function Hero() {
           <div>
             <div className="meta-label mb-3 text-accent tracking-[0.3em]">{t('hero.current_node')}</div>
             <div className="text-[0.65rem] md:text-xs text-black dark:text-white font-bold uppercase tracking-widest mb-1">Universidade Federal Fluminense (UFF)</div>
-            <div className="text-[0.65rem] text-gray-400 dark:text-gray-500 font-mono italic">BSc Computer Science</div>
+            <div className="text-[0.65rem] text-gray-600 dark:text-gray-500 font-mono italic">BSc Computer Science</div>
           </div>
           <div>
             <div className="meta-label mb-3 text-accent tracking-[0.3em]">{t('hero.status')}</div>

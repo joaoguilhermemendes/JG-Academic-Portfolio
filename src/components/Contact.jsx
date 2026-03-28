@@ -30,7 +30,7 @@ export default function Contact() {
               {t('contact.title')} <span className="text-accent italic">{t('contact.title_accent')}</span>
             </h2>
           </div>
-          <div className="meta-label text-gray-200 dark:text-gray-800 hidden md:block text-[0.6rem] tracking-[0.2em] font-bold">{t('contact.collab')}</div>
+          <div className="meta-label text-gray-400 dark:text-gray-800 hidden md:block text-[0.6rem] tracking-[0.2em] font-bold">{t('contact.collab')}</div>
         </motion.div>
 
         {/* Contact links Grid */}
@@ -44,7 +44,7 @@ export default function Contact() {
               rel="noreferrer"
               className="group flex flex-col gap-4 py-2 transition-all"
             >
-              <div className="font-mono text-[0.65rem] text-gray-300 dark:text-gray-600 tracking-[0.3em] font-black uppercase group-hover:text-accent dark:group-hover:text-accent transition-colors">
+              <div className="font-mono text-[0.65rem] text-gray-500 dark:text-gray-600 tracking-[0.3em] font-black uppercase group-hover:text-accent dark:group-hover:text-accent transition-colors">
                 {link.label}
               </div>
               <div className="font-mono text-2xl md:text-3xl font-black text-black dark:text-white tracking-tighter group-hover:text-accent dark:group-hover:text-accent transition-colors truncate">
@@ -63,10 +63,10 @@ export default function Contact() {
           className="flex flex-col md:flex-row justify-between items-center gap-12 pt-12 border-t border-gray-100 dark:border-[#222]"
           style={{ marginTop: '0' }}
         >
-          <div className="font-mono text-[0.65rem] text-gray-300 dark:text-gray-600 tracking-[0.2em] font-bold">
+          <div className="font-mono text-[0.65rem] text-gray-500 dark:text-gray-600 tracking-[0.2em] font-bold">
             {t('contact.footer')}
           </div>
-          <div className="font-mono text-[0.6rem] text-gray-300 dark:text-gray-600 tracking-[0.2em] flex items-center gap-8">
+          <div className="font-mono text-[0.6rem] text-gray-500 dark:text-gray-600 tracking-[0.2em] flex items-center gap-8">
             <span className="text-accent font-bold">{t('contact.university')}</span>
           </div>
         </motion.div>

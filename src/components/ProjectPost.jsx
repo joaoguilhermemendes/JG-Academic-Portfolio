@@ -29,7 +29,7 @@ export default function ProjectPost() {
         
         {/* Back Nav */}
         <div style={{ marginBottom: '60px' }}>
-          <Link to="/projects" className="font-mono text-[0.65rem] text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors tracking-[0.2em] uppercase font-black flex items-center group" style={{ gap: '16px' }}>
+          <Link to="/projects" className="font-mono text-[0.65rem] text-gray-500 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors tracking-[0.2em] uppercase font-black flex items-center group" style={{ gap: '16px' }}>
             <span className="group-hover:-translate-x-1 transition-transform">←</span>
             {t('projectpost.back')}
           </Link>
@@ -47,7 +47,7 @@ export default function ProjectPost() {
               <strong>J.G. Mendes</strong>
             </div>
 
-            <div className="text-sm font-serif text-gray-500 dark:text-gray-400 italic" style={{ marginBottom: '32px' }}>
+            <div className="text-sm font-serif text-gray-600 dark:text-gray-400 italic" style={{ marginBottom: '32px' }}>
               {t('projectpost.department')}<br />
               <span className="font-mono text-[0.65rem] not-italic tracking-widest uppercase mt-4 block">
                 Technical Report {project.id} — {project.date || '2026.Q1'}

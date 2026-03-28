@@ -29,7 +29,7 @@ export default function BlogPost() {
         
         {/* Back Nav */}
         <div style={{ marginBottom: '80px' }}>
-          <Link to="/posts" className="text-[0.7rem] text-gray-400 dark:text-gray-500 hover:text-accent transition-colors tracking-[0.3em] uppercase font-black flex items-center group" style={{ gap: '16px' }}>
+          <Link to="/posts" className="text-[0.7rem] text-gray-500 dark:text-gray-500 hover:text-accent transition-colors tracking-[0.3em] uppercase font-black flex items-center group" style={{ gap: '16px' }}>
             <span className="group-hover:-translate-x-1 transition-transform text-accent">←</span>
             {t('page.back_archive')}
           </Link>
@@ -46,7 +46,7 @@ export default function BlogPost() {
               {title}
             </h1>
 
-            <div className="flex flex-col text-[0.75rem] text-gray-500 dark:text-gray-400 uppercase tracking-widest" style={{ gap: '8px', marginBottom: '16px' }}>
+            <div className="flex flex-col text-[0.75rem] text-gray-600 dark:text-gray-400 uppercase tracking-widest" style={{ gap: '8px', marginBottom: '16px' }}>
               <div>{t('blogpost.date_label')} {post.date || post.year}</div>
               {venue && <div>{t('blogpost.venue_label')} {venue}</div>}
               <div>{t('blogpost.author_label')} J.G. Mendes</div>
@@ -54,7 +54,7 @@ export default function BlogPost() {
           </header>
 
           {/* Divider */}
-          <div className="text-gray-200 dark:text-gray-800 text-[0.7rem] overflow-hidden whitespace-nowrap select-none" style={{ marginBottom: '24px' }}>
+          <div className="text-gray-400 dark:text-gray-800 text-[0.7rem] overflow-hidden whitespace-nowrap select-none" style={{ marginBottom: '24px' }}>
             {'-'.repeat(200)}
           </div>
 
@@ -67,10 +67,10 @@ export default function BlogPost() {
 
           {/* Footer / EOF */}
           <div style={{ marginTop: '64px' }}>
-            <div className="text-gray-200 dark:text-gray-800 text-[0.7rem] overflow-hidden whitespace-nowrap select-none" style={{ marginBottom: '16px' }}>
+            <div className="text-gray-400 dark:text-gray-800 text-[0.7rem] overflow-hidden whitespace-nowrap select-none" style={{ marginBottom: '16px' }}>
               {'-'.repeat(100)}
             </div>
-            <div className="flex justify-between items-center text-[0.65rem] tracking-[0.3em] font-black uppercase text-gray-400 dark:text-gray-500">
+            <div className="flex justify-between items-center text-[0.65rem] tracking-[0.3em] font-black uppercase text-gray-500 dark:text-gray-500">
               <span>{t('blogpost.status_ok')}</span>
               <span className="text-accent">EOF</span>
             </div>
