@@ -20,7 +20,7 @@ function Home() {
   return (
     <>
       <Navbar />
-      <main className="text-black dark:text-gray-200 transition-colors duration-300">
+      <main className="transition-colors duration-300">
         <Hero />
         <Lab />
         <Timeline />
