@@ -1,0 +1,95 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 15 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-40px' },
+  transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] },
+});
+
+export default function Thinking() {
+  const { t } = useLanguage();
+
+  return (
+    <section id="thinking" className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+      <div className="container-main">
+        {/* Header Section without border */}
+        <motion.div {...fadeUp(0)} className="flex items-end justify-between" style={{ marginBottom: '80px' }}>
+          <div>
+            <div className="meta-label mb-6 text-gray-400 dark:text-gray-600">{t('thinking.section_label')}</div>
+            <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-black dark:text-white uppercase">
+              {t('thinking.title')} <span className="text-accent">{t('thinking.title_accent')}</span>
+            </h2>
+          </div>
+          <div className="meta-label text-gray-200 hidden md:block uppercase tracking-[0.2em]">{t('thinking.personal_statement')}</div>
+        </motion.div>
+
+        {/* Bio text and Portrait System */}
+        <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-start justify-between">
+          
+          {/* Left Column: Text Base */}
+          <div className="max-w-[75ch] flex flex-col gap-12 flex-1 pb-10">
+            <motion.p 
+              {...fadeUp(0.1)} 
+              className="text-3xl md:text-4xl font-normal text-black dark:text-gray-200 leading-tight font-sans tracking-tight"
+              dangerouslySetInnerHTML={{ __html: t('thinking.intro') }}
+            />
+            
+            <motion.p 
+              {...fadeUp(0.2)} 
+              className="text-xl md:text-2xl font-normal text-gray-500 dark:text-gray-400 leading-relaxed font-sans"
+              dangerouslySetInnerHTML={{ __html: t('thinking.body') }}
+            />
+          </div>
+
+          {/* Right Column: Editorial Portrait Placeholder */}
+          <motion.div {...fadeUp(0.3)} className="w-full lg:w-[400px] shrink-0 group xl:mt-4">
+            <div className="relative w-full aspect-[3/4] bg-gray-100 overflow-hidden">
+              {/* Subtle Red Overlay on Hover */}
+              <div className="absolute inset-0 bg-accent mix-blend-color opacity-0 group-hover:opacity-20 transition-opacity duration-700 z-10 pointer-events-none" />
+              {/* Image element with Grayscale & Contrast applied via Tailwind */}
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" 
+                alt="João Guilherme Portrait" 
+                className="w-full h-full object-cover grayscale contrast-125 brightness-95 group-hover:scale-105  transition-all duration-1000 ease-out"
+              />
+            </div>
+            {/* Academic Caption */}
+            <div className="mt-4 flex justify-between items-center border-t-[2px] border-black dark:border-white pt-3 mb-2">
+              <span className="font-mono text-[0.65rem] text-black dark:text-white font-bold tracking-widest uppercase">{t('thinking.based_in')}</span>
+              <span className="font-mono text-[0.65rem] text-accent font-bold tracking-[0.3em] uppercase">{t('thinking.fig')}</span>
+            </div>
+            <div className="font-mono text-gray-400 text-[0.65rem] leading-snug italic">
+              {t('thinking.hint')}
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* Horizontal Field Domains */}
+        <motion.div {...fadeUp(0.5)} className="w-full" style={{ marginTop: '80px' }}>
+          <div className="meta-label mb-16 text-gray-400 dark:text-gray-600">{t('pulse.areas_label')}</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
+            {[
+              { labelKey: 'pulse.area0.label', textKey: 'pulse.area0.text' },
+              { labelKey: 'pulse.area1.label', textKey: 'pulse.area1.text' },
+              { labelKey: 'pulse.area2.label', textKey: 'pulse.area2.text' },
+            ].map((m, i) => (
+              <div key={i} className="flex flex-col gap-5 py-2 transition-colors group">
+                 <div className="flex items-center gap-4">
+                    <span className="font-mono text-[0.65rem] font-bold text-accent tracking-[0.2em] uppercase">{t(m.labelKey)}</span>
+                 </div>
+                 <p className="text-black dark:text-white font-bold font-mono text-xl lg:text-2xl uppercase tracking-tighter leading-tight group-hover:text-accent transition-colors">
+                    {t(m.textKey)}
+                 </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+      </div>
+    </section>
+  );
+}

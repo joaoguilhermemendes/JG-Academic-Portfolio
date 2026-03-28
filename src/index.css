@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-void: #ffffff;
+  --color-surface: #fcfcfc;
+  --color-border: #eeeeee;
+  --color-text-primary: #121212;
+  --color-text-muted: #444444;
+  --color-text-dim: #999999;
+  --color-accent: #ff3b30;
+  --color-accent-dim: rgba(255, 59, 48, 0.05);
+
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure smooth dark mode transitions universally */
+h1, h2, h3, h4, p, span, div, a, button, section, main {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Typography Enhancements */
+.font-mono { font-family: var(--font-mono); }
+.font-sans { font-family: var(--font-sans); }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Container Refactoring (Wider & more robust) */
+.container-main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* Vertical Rhythm */
+section {
+  padding: 8rem 0;
+}
+
+/* Selection */
+::selection { background: var(--color-accent); color: white; }
+
+/* Custom Utilities for Academic Style */
+.meta-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.65rem;
+  color: var(--color-text-dim);
+  margin-bottom: 0.5rem;
+}
+
+/* Dark Mode Universal CSS Variable Overrides (Tailwind v4 native mapping) */
+@layer base {
+  .dark {
+    --color-black: #ffffff;
+    --color-white: #0a0a0a;
+    --color-gray-50: #111111;
+    --color-gray-100: #1a1a1a;
+    --color-gray-200: #2a2a2a;
+    --color-gray-300: #404040;
+    --color-gray-400: #737373;
+    --color-gray-500: #a3a3a3;
+    --color-gray-600: #d4d4d4;
+    --color-gray-700: #e5e5e5;
+    --color-gray-800: #f5f5f5;
+    --color-gray-900: #fafafa;
+  }
+}
+
+/* Custom Component Classes */
+.btn-cv {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: 1px solid var(--color-black);
+}
+.btn-cv:hover {
+  background-color: var(--color-accent);
+  color: #ffffff; /* Always white on the vibrant accent color */
+  border-color: var(--color-accent);
+}
