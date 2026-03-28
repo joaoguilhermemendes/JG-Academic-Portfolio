@@ -39,7 +39,7 @@ export default function AllProjects() {
           <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-4 uppercase">
             {t('allprojects.archive_label')} // {projectsData.length}{t('allprojects.entries_indexed')}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9] mb-14">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9] mb-10">
             {t('allprojects.title')}<br /><span className="italic text-accent">{t('allprojects.title_accent')}</span>
           </h1>
 
@@ -91,7 +91,7 @@ export default function AllProjects() {
                 >
                   <Link
                     to={project.link}
-                    className="group flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-4 items-start py-10 border-b border-gray-50 dark:border-[#1a1a1a] hover:bg-gray-50/40 dark:hover:bg-white/5 transition-colors"
+                    className="group flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-4 items-start py-7 border-b border-gray-50 dark:border-[#1a1a1a] hover:bg-gray-50/40 dark:hover:bg-white/5 transition-colors"
                   >
                     {/* Mobile compact row header */}
                     <div className="flex items-center justify-between w-full md:hidden">
