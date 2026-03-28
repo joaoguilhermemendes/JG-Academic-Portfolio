@@ -38,7 +38,7 @@ export default function AllPosts() {
           <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-4 uppercase">
             {t('allposts.archive_label')} // {citationsData.length}{t('allposts.entries_indexed')}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-black dark:text-white uppercase leading-[0.9] mb-10">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-black dark:text-white uppercase leading-[0.9] mb-14">
             {t('allposts.title')}<br /><span className="italic text-accent">{t('allposts.title_accent')}</span>
           </h1>
 

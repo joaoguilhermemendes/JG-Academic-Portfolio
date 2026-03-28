@@ -39,7 +39,7 @@ export default function AllProjects() {
           <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-4 uppercase">
             {t('allprojects.archive_label')} // {projectsData.length}{t('allprojects.entries_indexed')}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-black dark:text-white uppercase leading-[0.9] mb-10">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-black dark:text-white uppercase leading-[0.9] mb-14">
             {t('allprojects.title')}<br /><span className="italic text-accent">{t('allprojects.title_accent')}</span>
           </h1>
 

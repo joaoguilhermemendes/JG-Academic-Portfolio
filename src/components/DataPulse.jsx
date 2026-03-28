@@ -58,7 +58,7 @@ export default function DataPulse() {
             {t('pulse.title')} <span className="text-accent italic">{t('pulse.title_accent')}</span>
           </h2>
           {/* Filter nav */}
-          <div className="flex flex-wrap gap-6 items-center text-[0.75rem] font-black tracking-[0.15em] mt-8">
+          <div className="flex flex-wrap gap-6 items-center text-[0.75rem] font-black tracking-[0.15em] mt-16">
             {SECTIONS.map(s => (
               <button
                 key={s.id}
