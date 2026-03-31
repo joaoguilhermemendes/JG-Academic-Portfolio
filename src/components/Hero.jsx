@@ -144,7 +144,7 @@ export default function Hero() {
           </div>
           <div>
              <div className="meta-label mb-3 text-accent tracking-[0.3em]">{t('hero.location')}</div>
-             <div className="text-[0.65rem] md:text-xs text-[var(--color-text-primary)] font-bold uppercase tracking-widest">Cabo Frio, RJ, Brasil</div>
+             <div className="text-[0.65rem] md:text-xs text-[var(--color-text-primary)] font-bold uppercase tracking-widest">Rio de Janeiro, Brasil</div>
           </div>
         </motion.div>
         

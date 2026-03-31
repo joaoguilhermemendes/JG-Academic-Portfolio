@@ -51,7 +51,7 @@ export default function Thinking() {
               <div className="absolute inset-0 bg-accent mix-blend-color opacity-0 group-hover:opacity-20 transition-opacity duration-700 z-10 pointer-events-none" />
               {/* Image element with Grayscale & Contrast applied via Tailwind */}
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" 
+                src="/perfil.jpg" 
                 alt="João Guilherme Portrait" 
                 className="w-full h-full object-cover grayscale contrast-125 brightness-95 group-hover:scale-105  transition-all duration-1000 ease-out"
               />
@@ -60,9 +60,6 @@ export default function Thinking() {
             <div className="mt-4 flex justify-between items-center border-t-[2px] border-[var(--color-text-primary)] pt-3 mb-2">
               <span className="font-mono text-[0.65rem] text-[var(--color-text-primary)] font-bold tracking-widest uppercase">{t('thinking.based_in')}</span>
               <span className="font-mono text-[0.65rem] text-accent font-bold tracking-[0.3em] uppercase">{t('thinking.fig')}</span>
-            </div>
-            <div className="font-mono text-[var(--color-text-dim)] text-[0.65rem] leading-snug italic">
-              {t('thinking.hint')}
             </div>
           </motion.div>
 
