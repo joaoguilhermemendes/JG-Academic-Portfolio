@@ -83,6 +83,13 @@
   "thinking.based_in": "BASEADO EM CABO FRIO, RJ",
   "thinking.fig": "FIG.1",
   "thinking.hint": "↳ Para usar sua foto real, coloque uma imagem em /perfil.jpg e altere a URL aqui.",
+  "thinking.principles_label": "FILOSOFIA DE TRABALHO",
+  "thinking.p0.label": "INVESTIGAÇÃO CONSTANTE",
+  "thinking.p0.text": "Questionando premissas e buscando as verdades matemáticas por trás de cada dado.",
+  "thinking.p1.label": "RIGOR ITERATIVO",
+  "thinking.p1.text": "Abraçando a prototipagem rápida sem abrir mão de rigor acadêmico e padrões de engenharia.",
+  "thinking.p2.label": "SIMPLICIDADE PRIMEIRO",
+  "thinking.p2.text": "Destilando arquiteturas complexas em soluções elegantes, escaláveis e de fácil manutenção.",
 
   "page.back_root": "cd ../ voltar_ao_início",
   "page.back_archive": "cd ../ voltar_ao_arquivo",

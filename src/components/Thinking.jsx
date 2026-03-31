@@ -13,13 +13,13 @@ export default function Thinking() {
   const { t } = useLanguage();
 
   return (
-    <section id="thinking" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+    <section id="thinking" className="transition-colors duration-300" style={{ paddingTop: 'clamp(60px, 12vw, 130px)', paddingBottom: 'clamp(60px, 12vw, 130px)' }}>
       <div className="container-main">
         {/* Header Section without border */}
-        <motion.div {...fadeUp(0)} className="flex items-end justify-between" style={{ marginBottom: '80px' }}>
+        <motion.div {...fadeUp(0)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6" style={{ marginBottom: 'clamp(40px, 8vw, 80px)' }}>
           <div>
             <div className="meta-label mb-6 text-[var(--color-text-dim)]">{t('thinking.section_label')}</div>
-            <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
               {t('thinking.title')} <span className="text-accent">{t('thinking.title_accent')}</span>
             </h2>
           </div>
@@ -27,19 +27,19 @@ export default function Thinking() {
         </motion.div>
 
         {/* Bio text and Portrait System */}
-        <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-start justify-between">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-32 items-start justify-between">
           
           {/* Left Column: Text Base */}
-          <div className="max-w-[75ch] flex flex-col gap-12 flex-1 pb-10">
+          <div className="max-w-[75ch] flex flex-col gap-8 md:gap-12 flex-1 pb-6 md:pb-10">
             <motion.p 
               {...fadeUp(0.1)} 
-              className="text-3xl md:text-4xl font-normal text-black dark:text-gray-200 leading-tight font-sans tracking-tight"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-black dark:text-gray-200 leading-snug md:leading-tight font-sans tracking-tight"
               dangerouslySetInnerHTML={{ __html: t('thinking.intro') }}
             />
             
             <motion.p 
               {...fadeUp(0.2)} 
-              className="text-xl md:text-2xl font-normal text-[var(--color-text-dim)] leading-relaxed font-sans"
+              className="text-base md:text-xl lg:text-2xl font-normal text-[var(--color-text-dim)] leading-relaxed font-sans"
               dangerouslySetInnerHTML={{ __html: t('thinking.body') }}
             />
           </div>
@@ -69,13 +69,13 @@ export default function Thinking() {
         </div>
 
         {/* Horizontal Field Domains */}
-        <motion.div {...fadeUp(0.5)} className="w-full" style={{ marginTop: '80px' }}>
-          <div className="meta-label mb-16 text-[var(--color-text-dim)]">{t('pulse.areas_label')}</div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
+        <motion.div {...fadeUp(0.5)} className="w-full" style={{ marginTop: 'clamp(40px, 8vw, 80px)' }}>
+          <div className="meta-label mb-16 text-[var(--color-text-dim)]">{t('thinking.principles_label')}</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 lg:gap-24">
             {[
-              { labelKey: 'pulse.area0.label', textKey: 'pulse.area0.text' },
-              { labelKey: 'pulse.area1.label', textKey: 'pulse.area1.text' },
-              { labelKey: 'pulse.area2.label', textKey: 'pulse.area2.text' },
+              { labelKey: 'thinking.p0.label', textKey: 'thinking.p0.text' },
+              { labelKey: 'thinking.p1.label', textKey: 'thinking.p1.text' },
+              { labelKey: 'thinking.p2.label', textKey: 'thinking.p2.text' },
             ].map((m, i) => (
               <div key={i} className="flex flex-col gap-5 py-2 transition-colors group">
                  <div className="flex items-center gap-4">

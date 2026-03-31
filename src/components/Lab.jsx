@@ -63,13 +63,13 @@ export default function Lab() {
 
   return (
     <>
-      <section id="lab" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+      <section id="lab" className="transition-colors duration-300" style={{ paddingTop: 'clamp(60px, 12vw, 130px)', paddingBottom: 'clamp(60px, 12vw, 130px)' }}>
         <div className="container-main">
           {/* Header */}
-          <motion.div {...fadeUp(0)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10" style={{ marginBottom: '80px' }}>
+          <motion.div {...fadeUp(0)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-10" style={{ marginBottom: 'clamp(40px, 8vw, 80px)' }}>
             <div>
               <div className="meta-label mb-6 text-[var(--color-text-dim)]">{t('lab.section_label')}</div>
-              <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
                 {t('lab.title')} <span className="text-accent">{t('lab.title_accent')}</span>
               </h2>
             </div>
@@ -81,7 +81,7 @@ export default function Lab() {
           </motion.div>
 
           {/* 3-col project entries */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10 md:gap-y-16">
             {[...projectsData]
               .sort((a, b) => new Date(b.date) - new Date(a.date))
               .slice(0, 3)
@@ -92,31 +92,29 @@ export default function Lab() {
         </div>
       </section>
 
-      <section id="publications" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+      <section id="publications" className="transition-colors duration-300" style={{ paddingTop: 'clamp(60px, 12vw, 130px)', paddingBottom: 'clamp(60px, 12vw, 130px)' }}>
         <div className="container-main">
           {/* Header */}
-          <motion.div {...fadeUp(0.1)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10" style={{ marginBottom: '100px' }}>
+          <motion.div {...fadeUp(0.1)} className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-10" style={{ marginBottom: 'clamp(40px, 8vw, 100px)' }}>
             <div>
               <div className="meta-label mb-6 text-[var(--color-text-dim)]">{t('pub.section_label')}</div>
-              <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
                 {t('pub.title')} <span className="text-accent">{t('pub.title_accent')}</span>
               </h2>
             </div>
-            {citationsData.length > 5 && (
-              <Link to="/posts" className="font-mono text-[0.7rem] text-[var(--color-text-primary)] font-bold uppercase tracking-[0.2em] transition-colors hover:text-accent dark:hover:text-accent flex items-center gap-4 group pb-2">
-                {t('pub.view_all')} <span className="text-[var(--color-text-dim)] group-hover:translate-x-2 transition-transform">→</span>
-              </Link>
-            )}
+            <Link to="/posts" className="font-mono text-[0.7rem] text-gray-500 dark:text-gray-500 font-black uppercase tracking-[0.3em] transition-colors hover:text-accent dark:hover:text-accent flex items-center gap-4 group pb-2">
+              {t('pub.view_all')} <span className="group-hover:translate-x-2 transition-transform">→</span>
+            </Link>
           </motion.div>
 
           {/* Publications List */}
           <motion.div {...fadeUp(0.3)}>
-            <div className="flex flex-col gap-y-16">
+            <div className="flex flex-col gap-y-8 md:gap-y-16">
               {[...citationsData]
                 .sort((a, b) => new Date(b.date) - new Date(a.date))
                 .slice(0, 5)
                 .map((pub, i) => (
-                <Link to={pub.link || '#'} key={i} className="flex flex-col md:flex-row gap-8 md:gap-24 items-start group hover:no-underline cursor-pointer">
+                <Link to={pub.link || '#'} key={i} className="flex flex-col md:flex-row gap-4 md:gap-24 items-start group hover:no-underline cursor-pointer">
                   <span className="font-mono text-sm text-accent font-bold md:pt-1 transition-colors group-hover:text-[var(--color-text-primary)]">{pub.year}</span>
                   <div className="flex-1 max-w-[65ch]">
                     <div className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)] transition-all duration-300 font-mono leading-tight mb-4 group-hover:text-accent dark:group-hover:text-accent">

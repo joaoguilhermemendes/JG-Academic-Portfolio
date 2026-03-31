@@ -83,6 +83,13 @@
   "thinking.based_in": "BASED IN CABO FRIO, RJ",
   "thinking.fig": "FIG.1",
   "thinking.hint": "↳ To use your real photo, place a high-res image at /perfil.jpg and change the src URL here.",
+  "thinking.principles_label": "WORK PHILOSOPHY",
+  "thinking.p0.label": "CONSTANT INQUIRY",
+  "thinking.p0.text": "Challenging assumptions and seeking the mathematical truths behind every data point.",
+  "thinking.p1.label": "ITERATIVE RIGOR",
+  "thinking.p1.text": "Embracing fast prototyping without sacrificing academic rigor and engineering standards.",
+  "thinking.p2.label": "SIMPLICITY FIRST",
+  "thinking.p2.text": "Distilling complex architectures into elegant, scalable, and maintainable solutions.",
 
   "page.back_root": "cd ../ return_to_root",
   "page.back_archive": "cd ../ return_to_archive",

@@ -77,7 +77,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section id="hero" className="min-h-[100svh] flex flex-col pt-32" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+    <section id="hero" className="min-h-[100svh] flex flex-col" style={{ paddingTop: 'clamp(80px, 15vw, 130px)', paddingBottom: 'clamp(60px, 12vw, 130px)' }}>
       <div className="container-main flex-1 flex flex-col w-full">
         
         {/* Vertically Centered Main Content Split */}
@@ -86,23 +86,23 @@ export default function Hero() {
           {/* Left Text Base */}
           <div className="lg:col-span-8 flex flex-col justify-center">
             
-            <motion.div {...fadeUp(0)} className="meta-label inline-block text-gray-400" style={{ marginBottom: '48px' }}>
+            <motion.div {...fadeUp(0)} className="meta-label inline-block text-gray-400" style={{ marginBottom: 'clamp(24px, 5vw, 48px)' }}>
                {t('hero.student')}
             </motion.div>
 
-            <div className="flex flex-col gap-16 lg:gap-24 items-start">
+            <div className="flex flex-col gap-8 md:gap-16 lg:gap-24 items-start">
               <div className="max-w-[85ch]">
                 <motion.h1 
                   {...fadeUp(0.1)}
-                  className="text-[4.5rem] md:text-[7.5rem] leading-[0.85] font-bold text-[var(--color-text-primary)] mb-12"
+                  className="text-[3rem] sm:text-[4.5rem] md:text-[7.5rem] leading-[0.85] font-bold text-[var(--color-text-primary)] mb-6 md:mb-12"
                   style={{ letterSpacing: '-0.06em' }}
                 >
                   João<br />Guilherme<br />Mendes<span className="text-accent">.</span>
                 </motion.h1>
 
-                <motion.p {...fadeUp(0.2)} className="text-xl md:text-2xl font-normal text-[var(--color-text-muted)] leading-tight mb-0 max-w-[38ch]" dangerouslySetInnerHTML={{ __html: t('hero.description') }} />
+                <motion.p {...fadeUp(0.2)} className="text-base md:text-xl lg:text-2xl font-normal text-[var(--color-text-muted)] leading-snug md:leading-tight mb-0 max-w-[38ch]" dangerouslySetInnerHTML={{ __html: t('hero.description') }} />
                 
-                <motion.div {...fadeUp(0.3)} className="flex flex-wrap items-center gap-8 sm:gap-12" style={{ marginTop: '48px' }}>
+                <motion.div {...fadeUp(0.3)} className="flex flex-wrap items-center gap-4 sm:gap-8 md:gap-12" style={{ marginTop: 'clamp(24px, 5vw, 48px)' }}>
                   <a href="https://lattes.cnpq.br/9460711429082348" target="_blank" rel="noreferrer" className="btn-cv text-[0.8rem] px-6 py-3 font-mono tracking-widest font-bold transition-all uppercase cursor-pointer">
                     {t('hero.download_cv')}
                   </a>
@@ -129,7 +129,7 @@ export default function Hero() {
         </div>
 
         {/* Metadata Horizontal Bar (Locked to Bottom) */}
-        <motion.div {...fadeUp(0.25)} className="w-full grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 pt-10 border-t border-[var(--color-border-subtle)] mt-auto">
+        <motion.div {...fadeUp(0.25)} className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pt-8 md:pt-10 border-t border-[var(--color-border-subtle)] mt-auto">
           <div>
             <div className="meta-label mb-3 text-accent tracking-[0.3em]">{t('hero.current_node')}</div>
             <div className="text-[0.65rem] md:text-xs text-[var(--color-text-primary)] font-bold uppercase tracking-widest mb-1">Universidade Federal Fluminense (UFF)</div>

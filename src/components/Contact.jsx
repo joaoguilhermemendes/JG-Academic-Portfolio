@@ -20,13 +20,13 @@ export default function Contact() {
   const { t } = useLanguage();
 
   return (
-    <footer id="contact" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '20vh' }}>
+    <footer id="contact" className="transition-colors duration-300" style={{ paddingTop: 'clamp(60px, 12vw, 130px)', paddingBottom: 'clamp(60px, 12vw, 20vh)' }}>
       <div className="container-main">
         {/* Header */}
         <motion.div {...fadeUp(0)} className="flex items-end justify-between" style={{ marginBottom: '30px' }}>
           <div>
             <div className="meta-label mb-2 text-accent font-bold tracking-[0.3em] text-[0.65rem]">{t('contact.section_label')}</div>
-            <h2 className="text-4xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase leading-tight">
               {t('contact.title')} <span className="text-accent italic">{t('contact.title_accent')}</span>
             </h2>
           </div>
@@ -34,7 +34,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 md:gap-y-12">
           {LINKS.map((link, i) => (
             <motion.a
               key={link.label}
@@ -47,7 +47,7 @@ export default function Contact() {
               <div className="font-mono text-[0.65rem] text-[var(--color-text-dim)] tracking-[0.3em] font-black uppercase group-hover:text-accent dark:group-hover:text-accent transition-colors">
                 {link.label}
               </div>
-              <div className="font-mono text-2xl md:text-3xl font-black text-[var(--color-text-primary)] tracking-tighter group-hover:text-accent dark:group-hover:text-accent transition-colors truncate">
+              <div className="font-mono text-xl md:text-2xl lg:text-3xl font-black text-[var(--color-text-primary)] tracking-tighter group-hover:text-accent dark:group-hover:text-accent transition-colors truncate">
                 {t(link.labelKey)}
               </div>
             </motion.a>
@@ -55,7 +55,7 @@ export default function Contact() {
         </div>
 
         {/* Spacer */}
-        <div style={{ height: '200px' }} />
+        <div className="h-24 md:h-[200px]" />
 
         {/* Footer bar */}
         <motion.div

@@ -18,31 +18,34 @@ export default function AllPosts() {
 
   const getVenue = (pub) => isPt && pub.venue_pt ? pub.venue_pt : pub.venue;
   const getTitle = (pub) => isPt && pub.title_pt ? pub.title_pt : pub.title;
+  const getDesc  = (pub) => isPt && pub.desc_pt  ? pub.desc_pt  : pub.desc;
 
   const resultLabel = filtered.length !== 1 ? t('page.result_plural') : t('page.result_singular');
 
   return (
     <div className="min-h-screen font-mono transition-colors duration-300" style={{ paddingBottom: '120px' }}>
-      <div className="container-main" style={{ paddingTop: '120px' }}>
+      <div className="container-main" style={{ paddingTop: 'clamp(100px, 18vw, 180px)' }}>
 
         {/* Back nav */}
-        <div className="mb-12">
+        <div style={{ marginBottom: 'clamp(32px, 6vw, 60px)' }}>
           <Link to="/" className="text-[0.7rem] text-[var(--color-text-dim)] hover:text-accent transition-colors tracking-[0.3em] uppercase font-black flex items-center gap-4 group">
             <span className="group-hover:-translate-x-1 transition-transform text-accent">←</span>
             {t('page.back_root')}
           </Link>
         </div>
 
-        {/* Header */}
-        <div className="mb-12">
-          <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-4 uppercase">
+        {/* Title */}
+        <div style={{ marginBottom: 'clamp(32px, 6vw, 60px)' }}>
+          <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-6 uppercase">
             {t('allposts.archive_label')} // {citationsData.length}{t('allposts.entries_indexed')}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9] mb-10">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9]">
             {t('allposts.title')}<br /><span className="italic text-accent">{t('allposts.title_accent')}</span>
           </h1>
+        </div>
 
-          {/* Filter buttons */}
+        {/* Filter buttons */}
+        <div style={{ marginBottom: 'clamp(24px, 5vw, 48px)' }}>
           <div className="flex flex-wrap gap-4 text-[0.7rem] font-black tracking-[0.15em]">
             <button
               onClick={() => setFilter('ALL')}
@@ -105,11 +108,17 @@ export default function AllPosts() {
                     #{String(i + 1).padStart(2, '0')}
                   </span>
 
-                  {/* Title */}
-                  <div className="w-full md:col-span-6">
+                  {/* Title + hover desc */}
+                  <div className="w-full md:col-span-6 flex flex-col">
                     <span className="text-[0.9rem] md:text-[1rem] font-black text-[var(--color-text-primary)] uppercase tracking-tight leading-tight group-hover:text-accent transition-colors">
                       {getTitle(pub)}
                     </span>
+                    {/* Bio that reveals on hover */}
+                    <div className="overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-500 ease-in-out">
+                      <span className="block text-[0.7rem] text-[var(--color-text-dim)] leading-snug mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                        {getDesc(pub)}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Venue */}

@@ -34,13 +34,13 @@ export default function Timeline() {
   ];
 
   return (
-    <section id="timeline" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+    <section id="timeline" className="transition-colors duration-300" style={{ paddingTop: 'clamp(60px, 12vw, 130px)', paddingBottom: 'clamp(60px, 12vw, 130px)' }}>
       <div className="container-main">
         {/* Header */}
-        <motion.div {...fadeUp(0)} className="mb-32 flex items-end justify-between">
+        <motion.div {...fadeUp(0)} className="mb-16 md:mb-32 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div>
             <div className="meta-label mb-6 text-[var(--color-text-dim)]">{t('timeline.section_label')}</div>
-            <h2 className="text-5xl md:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
               {t('timeline.title')} <span className="text-accent">{t('timeline.title_accent')}</span>
             </h2>
           </div>
@@ -50,11 +50,11 @@ export default function Timeline() {
         </motion.div>
 
         {/* Timeline List */}
-        <div className="flex flex-col gap-y-48 relative">
+        <div className="flex flex-col gap-y-16 md:gap-y-48 relative">
           <div className="absolute lg:left-[calc(260px+4rem)] top-0 bottom-4 w-[1px] bg-accent hidden lg:block opacity-20" />
 
           {EVENTS.map((ev, idx) => (
-            <motion.div key={idx} {...fadeUp(0.1 + idx * 0.1)} className="flex flex-col lg:flex-row gap-12 lg:gap-32 relative group">
+            <motion.div key={idx} {...fadeUp(0.1 + idx * 0.1)} className="flex flex-col lg:flex-row gap-6 lg:gap-32 relative group">
               <div className="absolute lg:left-[calc(260px+4rem-4px)] top-3 w-[9px] h-[9px] bg-accent hidden lg:block group-hover:scale-150 transition-transform origin-center" />
 
               {/* Date Column */}
@@ -64,11 +64,11 @@ export default function Timeline() {
 
               {/* Info Column */}
               <div className="flex-1">
-                <h3 className="font-mono text-3xl font-bold text-[var(--color-text-primary)] mb-6 uppercase tracking-tight">{t(ev.titleKey)}</h3>
-                <div className="font-mono text-[0.8rem] text-[var(--color-text-dim)] font-bold tracking-[0.2em] mb-10 uppercase inline-block">
+                <h3 className="font-mono text-xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4 md:mb-6 uppercase tracking-tight">{t(ev.titleKey)}</h3>
+                <div className="font-mono text-[0.8rem] text-[var(--color-text-dim)] font-bold tracking-[0.2em] mb-6 md:mb-10 uppercase inline-block">
                   @ {t(ev.institutionKey)}
                 </div>
-                <p className="text-xl text-[var(--color-text-muted)] leading-relaxed max-w-[55ch] font-normal">
+                <p className="text-base md:text-xl text-[var(--color-text-muted)] leading-relaxed max-w-[55ch] font-normal">
                   {t(ev.descKey)}
                 </p>
               </div>

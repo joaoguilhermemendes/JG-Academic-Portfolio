@@ -48,17 +48,17 @@ export default function DataPulse() {
   const groups = ['data', 'research', 'engineering'];
 
   return (
-    <section id="pulse" className="transition-colors duration-300" style={{ paddingTop: '130px', paddingBottom: '130px' }}>
+    <section id="pulse" className="transition-colors duration-300" style={{ paddingTop: 'clamp(60px, 12vw, 130px)', paddingBottom: 'clamp(60px, 12vw, 130px)' }}>
       <div className="container-main font-mono">
 
         {/* Header block */}
-        <div style={{ marginBottom: '60px' }}>
+        <div style={{ marginBottom: 'clamp(32px, 6vw, 60px)' }}>
           <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-4 uppercase">{t('pulse.section_label')}</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9] mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9] mb-6">
             {t('pulse.title')} <span className="text-accent italic">{t('pulse.title_accent')}</span>
           </h2>
           {/* Filter nav */}
-          <div className="flex flex-wrap gap-6 items-center text-[0.75rem] font-black tracking-[0.15em] mt-16">
+          <div className="flex flex-wrap gap-4 md:gap-6 items-center text-[0.75rem] font-black tracking-[0.15em] mt-8 md:mt-16">
             {SECTIONS.map(s => (
               <button
                 key={s.id}
@@ -87,7 +87,7 @@ export default function DataPulse() {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
             {active === 'all' ? (
-              <div className="flex flex-col gap-24">
+              <div className="flex flex-col gap-12 md:gap-24">
                 {groups.map(grpId => {
                   const grpSkills = SKILLS.filter(s => s.id === grpId);
                   return (
@@ -132,9 +132,9 @@ export default function DataPulse() {
         </div>
 
         {/* Areas of Exploration */}
-        <motion.div className="w-full" style={{ marginTop: '80px' }}>
-          <div className="meta-label mb-16 text-[var(--color-text-dim)]">{t('pulse.areas_label')}</div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
+        <motion.div className="w-full" style={{ marginTop: 'clamp(40px, 8vw, 80px)' }}>
+          <div className="meta-label mb-8 md:mb-16 text-[var(--color-text-dim)]">{t('pulse.areas_label')}</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 lg:gap-24">
             {AREAS.map((area, i) => (
               <div key={i} className="flex flex-col gap-5 py-2 transition-colors group">
                 <div className="flex items-center gap-4">

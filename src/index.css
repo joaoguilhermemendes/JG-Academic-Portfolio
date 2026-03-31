@@ -80,7 +80,13 @@ a:hover {
 
 /* Vertical Rhythm */
 section {
-  padding: 8rem 0;
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 8rem 0;
+  }
 }
 
 /* Selection */

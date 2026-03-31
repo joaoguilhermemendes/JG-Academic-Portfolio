@@ -24,26 +24,28 @@ export default function AllProjects() {
 
   return (
     <div className="min-h-screen font-mono transition-colors duration-300 pb-32">
-      <div className="container-main" style={{ paddingTop: '120px' }}>
+      <div className="container-main" style={{ paddingTop: 'clamp(100px, 18vw, 180px)' }}>
 
         {/* Back nav */}
-        <div className="mb-12">
+        <div style={{ marginBottom: 'clamp(32px, 6vw, 60px)' }}>
           <Link to="/" className="text-[0.7rem] text-[var(--color-text-dim)] hover:text-accent transition-colors tracking-[0.3em] uppercase font-black flex items-center gap-4 group">
             <span className="group-hover:-translate-x-1 transition-transform text-accent">←</span>
             {t('page.back_root')}
           </Link>
         </div>
 
-        {/* Header */}
-        <div className="mb-12">
-          <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-4 uppercase">
+        {/* Title */}
+        <div style={{ marginBottom: 'clamp(32px, 6vw, 60px)' }}>
+          <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-6 uppercase">
             {t('allprojects.archive_label')} // {projectsData.length}{t('allprojects.entries_indexed')}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9] mb-10">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9]">
             {t('allprojects.title')}<br /><span className="italic text-accent">{t('allprojects.title_accent')}</span>
           </h1>
+        </div>
 
-          {/* Filter */}
+        {/* Filter */}
+        <div style={{ marginBottom: 'clamp(24px, 5vw, 48px)' }}>
           <div className="flex flex-wrap gap-4 text-[0.7rem] font-black tracking-[0.15em]">
             {ALL_TAGS_EN.map(tag => (
               <button
@@ -104,14 +106,17 @@ export default function AllProjects() {
                       #{String(i + 1).padStart(2, '0')}
                     </span>
 
-                    {/* Title + desc */}
-                    <div className="w-full md:col-span-5 flex flex-col gap-2">
+                    {/* Title + hover desc */}
+                    <div className="w-full md:col-span-5 flex flex-col">
                       <span className="text-[0.9rem] md:text-[1.05rem] font-black text-[var(--color-text-primary)] uppercase tracking-tight leading-tight group-hover:text-accent transition-colors">
                         {getTitle(project)}
                       </span>
-                      <span className="text-[0.7rem] text-[var(--color-text-dim)] leading-snug">
-                        {getDesc(project)}
-                      </span>
+                      {/* Bio that reveals on hover */}
+                      <div className="overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-500 ease-in-out">
+                        <span className="block text-[0.7rem] text-[var(--color-text-dim)] leading-snug mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                          {getDesc(project)}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Domain */}
