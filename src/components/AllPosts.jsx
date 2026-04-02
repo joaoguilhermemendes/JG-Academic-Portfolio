@@ -93,49 +93,59 @@ export default function AllPosts() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: i * 0.05 }}
               >
-                <Link
-                  to={pub.link || '#'}
-                  className="group flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-4 items-start py-7 border-b border-gray-50 dark:border-[#1a1a1a] hover:bg-gray-50/40 dark:hover:bg-white/5 transition-colors"
-                >
-                  {/* Mobile: compact header row */}
-                  <div className="flex items-center justify-between w-full md:hidden">
-                    <span className="text-[0.6rem] text-[var(--color-text-dim)]">#{String(i + 1).padStart(2, '0')}</span>
-                    <span className="text-[0.6rem] text-accent font-black">{pub.code} →</span>
-                  </div>
+                {(() => {
+                  const isExternal = pub.link?.startsWith('http');
+                  const LinkComponent = isExternal ? 'a' : Link;
+                  const linkProps = isExternal 
+                    ? { href: pub.link, target: "_blank", rel: "noopener noreferrer" } 
+                    : { to: pub.link || '#' };
 
-                  {/* REF — desktop only */}
-                  <span className="hidden md:block col-span-1 text-[0.65rem] text-[var(--color-text-muted)] group-hover:text-accent transition-colors pt-1">
-                    #{String(i + 1).padStart(2, '0')}
-                  </span>
+                  return (
+                    <LinkComponent
+                      {...linkProps}
+                      className="group flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-4 items-start py-7 border-b border-gray-50 dark:border-[#1a1a1a] hover:bg-gray-50/40 dark:hover:bg-white/5 transition-colors"
+                    >
+                      {/* Mobile: compact header row */}
+                      <div className="flex items-center justify-between w-full md:hidden">
+                        <span className="text-[0.6rem] text-[var(--color-text-dim)]">#{String(i + 1).padStart(2, '0')}</span>
+                        <span className="text-[0.6rem] text-accent font-black">{pub.code} →</span>
+                      </div>
 
-                  {/* Title + hover desc */}
-                  <div className="w-full md:col-span-6 flex flex-col">
-                    <span className="text-[0.9rem] md:text-[1rem] font-black text-[var(--color-text-primary)] uppercase tracking-tight leading-tight group-hover:text-accent transition-colors">
-                      {getTitle(pub)}
-                    </span>
-                    {/* Bio that reveals on hover */}
-                    <div className="overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-500 ease-in-out">
-                      <span className="block text-[0.7rem] text-[var(--color-text-dim)] leading-snug mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                        {getDesc(pub)}
+                      {/* REF — desktop only */}
+                      <span className="hidden md:block col-span-1 text-[0.65rem] text-[var(--color-text-muted)] group-hover:text-accent transition-colors pt-1">
+                        #{String(i + 1).padStart(2, '0')}
                       </span>
-                    </div>
-                  </div>
 
-                  {/* Venue */}
-                  <span className="text-[0.65rem] text-[var(--color-text-dim)] tracking-[0.1em] uppercase md:col-span-3">
-                    {getVenue(pub) || '—'}
-                  </span>
+                      {/* Title + hover desc */}
+                      <div className="w-full md:col-span-6 flex flex-col">
+                        <span className="text-[0.9rem] md:text-[1rem] font-black text-[var(--color-text-primary)] uppercase tracking-tight leading-tight group-hover:text-accent transition-colors">
+                          {getTitle(pub)}
+                        </span>
+                        {/* Bio that reveals on hover */}
+                        <div className="overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-500 ease-in-out">
+                          <span className="block text-[0.7rem] text-[var(--color-text-dim)] leading-snug mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            {getDesc(pub)}
+                          </span>
+                        </div>
+                      </div>
 
-                  {/* Year */}
-                  <span className="text-[0.65rem] text-[var(--color-text-dim)] md:col-span-1">
-                    {pub.year || (pub.date ? new Date(pub.date).getFullYear() : '—')}
-                  </span>
+                      {/* Venue */}
+                      <span className="text-[0.65rem] text-[var(--color-text-dim)] tracking-[0.1em] uppercase md:col-span-3">
+                        {getVenue(pub) || '—'}
+                      </span>
 
-                  {/* Code — desktop only */}
-                  <span className="hidden md:block col-span-1 text-right text-[0.65rem] text-accent font-black tracking-[0.2em] uppercase">
-                    {pub.code || 'READ'} →
-                  </span>
-                </Link>
+                      {/* Year */}
+                      <span className="text-[0.65rem] text-[var(--color-text-dim)] md:col-span-1">
+                        {pub.year || (pub.date ? new Date(pub.date).getFullYear() : '—')}
+                      </span>
+
+                      {/* Code — desktop only */}
+                      <span className="hidden md:block col-span-1 text-right text-[0.65rem] text-accent font-black tracking-[0.2em] uppercase">
+                        {pub.code || 'READ'} →
+                      </span>
+                    </LinkComponent>
+                  );
+                })()}
               </motion.div>
             ))}
           </motion.div>

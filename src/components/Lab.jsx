@@ -113,22 +113,30 @@ export default function Lab() {
               {[...citationsData]
                 .sort((a, b) => new Date(b.date) - new Date(a.date))
                 .slice(0, 5)
-                .map((pub, i) => (
-                <Link to={pub.link || '#'} key={i} className="flex flex-col md:flex-row gap-4 md:gap-24 items-start group hover:no-underline cursor-pointer">
-                  <span className="font-mono text-sm text-accent font-bold md:pt-1 transition-colors group-hover:text-[var(--color-text-primary)]">{pub.year}</span>
-                  <div className="flex-1 max-w-[65ch]">
-                    <div className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)] transition-all duration-300 font-mono leading-tight mb-4 group-hover:text-accent dark:group-hover:text-accent">
-                      {isPt && pub.title_pt ? pub.title_pt : pub.title}
-                    </div>
-                    <div className="text-[0.7rem] text-[var(--color-text-dim)] font-mono italic uppercase tracking-[0.2em] transition-colors group-hover:text-[var(--color-text-primary)]">
-                      {isPt && pub.venue_pt ? pub.venue_pt : pub.venue}
-                    </div>
-                  </div>
-                  <div className="font-mono text-[0.65rem] text-[var(--color-text-dim)] uppercase tracking-widest pt-1 mt-4 md:mt-0 transition-colors flex items-center gap-4 group-hover:text-accent">
-                    {pub.code} <span className="opacity-0 group-hover:opacity-100 transition-opacity text-base translate-y-[1px] font-sans">→</span>
-                  </div>
-                </Link>
-              ))}
+                .map((pub, i) => {
+                  const isExternal = pub.link?.startsWith('http');
+                  const LinkComponent = isExternal ? 'a' : Link;
+                  const linkProps = isExternal 
+                    ? { href: pub.link, target: "_blank", rel: "noopener noreferrer" } 
+                    : { to: pub.link || '#' };
+
+                  return (
+                    <LinkComponent {...linkProps} key={i} className="flex flex-col md:flex-row gap-4 md:gap-24 items-start group hover:no-underline cursor-pointer">
+                      <span className="font-mono text-sm text-accent font-bold md:pt-1 transition-colors group-hover:text-[var(--color-text-primary)]">{pub.year}</span>
+                      <div className="flex-1 max-w-[65ch]">
+                        <div className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)] transition-all duration-300 font-mono leading-tight mb-4 group-hover:text-accent dark:group-hover:text-accent">
+                          {isPt && pub.title_pt ? pub.title_pt : pub.title}
+                        </div>
+                        <div className="text-[0.7rem] text-[var(--color-text-dim)] font-mono italic uppercase tracking-[0.2em] transition-colors group-hover:text-[var(--color-text-primary)]">
+                          {isPt && pub.venue_pt ? pub.venue_pt : pub.venue}
+                        </div>
+                      </div>
+                      <div className="font-mono text-[0.65rem] text-[var(--color-text-dim)] uppercase tracking-widest pt-1 mt-4 md:mt-0 transition-colors flex items-center gap-4 group-hover:text-accent">
+                        {pub.code} <span className="opacity-0 group-hover:opacity-100 transition-opacity text-base translate-y-[1px] font-sans">→</span>
+                      </div>
+                    </LinkComponent>
+                  );
+                })}
             </div>
           </motion.div>
         </div>

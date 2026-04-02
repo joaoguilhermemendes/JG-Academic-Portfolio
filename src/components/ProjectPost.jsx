@@ -23,6 +23,10 @@ export default function ProjectPost() {
   const tag   = isPt && project.tag_pt   ? project.tag_pt   : project.tag;
   const desc  = isPt && project.desc_pt  ? project.desc_pt  : project.desc;
 
+  const contentIntro = isPt && project.content_intro_pt ? project.content_intro_pt : project.content_intro || desc;
+  const contentArch = isPt && project.content_arch_pt ? project.content_arch_pt : project.content_arch || '';
+  const contentConc = isPt && project.content_conc_pt ? project.content_conc_pt : project.content_conc || '';
+
   return (
     <div className="min-h-screen text-[var(--color-text-primary)] font-serif transition-colors duration-300">
       <div className="container-main" style={{ paddingTop: '100px', paddingBottom: '160px' }}>
@@ -60,9 +64,27 @@ export default function ProjectPost() {
             <h2 className="text-center font-bold font-sans text-sm tracking-widest uppercase" style={{ marginBottom: '16px' }}>
               {t('projectpost.abstract')}
             </h2>
-            <p className="text-sm md:text-base leading-relaxed text-justify dark:text-gray-300">
+            <p className="text-sm md:text-base leading-relaxed text-justify mb-8">
               {desc}
             </p>
+            {/* Prominent GitHub Highlight */}
+            {project.github && (
+              <div className="flex justify-center mt-8">
+                <a 
+                  href={project.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex flex-col items-center gap-1 group"
+                >
+                  <span className="font-mono text-[0.65rem] text-[var(--color-text-dim)] tracking-widest mb-2 group-hover:text-accent transition-colors">
+                    &lt; SOURCE CODE AVAILABLE /&gt;
+                  </span>
+                  <span className="px-10 py-4 border border-[var(--color-text-primary)] text-[var(--color-text-primary)] font-bold tracking-[0.2em] uppercase text-sm group-hover:bg-[var(--color-text-primary)] group-hover:text-[var(--color-surface)] dark:group-hover:text-black transition-all">
+                    Acessar Repositório no GitHub
+                  </span>
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Two-Column Metadata */}
@@ -83,35 +105,54 @@ export default function ProjectPost() {
             <h3 className="font-bold text-xl md:text-2xl tracking-tight" style={{ marginTop: '48px', marginBottom: '16px' }}>
               {t('projectpost.intro_heading')}
             </h3>
-            <p style={{ marginBottom: '32px' }}>
-              {desc}
+            <p style={{ marginBottom: '32px', whiteSpace: 'pre-line' }}>
+              {contentIntro}
             </p>
 
-            <h3 className="font-bold text-xl md:text-2xl tracking-tight" style={{ marginTop: '48px', marginBottom: '16px' }}>
-              {t('projectpost.arch_heading')}
-            </h3>
-            <p style={{ marginBottom: '32px' }}>
-              {/* Project-specific content */}
-            </p>
+            {contentArch && (
+              <>
+                <h3 className="font-bold text-xl md:text-2xl tracking-tight" style={{ marginTop: '48px', marginBottom: '16px' }}>
+                  {t('projectpost.arch_heading')}
+                </h3>
+                <p style={{ marginBottom: '32px', whiteSpace: 'pre-line' }}>
+                  {contentArch}
+                </p>
+              </>
+            )}
 
             {/* Figure Block */}
-            {project.image && (
+            {project.images ? (
+              project.images.map((imgUrl, i) => (
+                <figure key={i} style={{ marginBottom: '80px' }}>
+                  <div className="bg-[var(--color-surface)] border border-[var(--color-border-subtle)] p-2">
+                    <img src={imgUrl} alt={`Demonstration ${i + 1}`} className="w-full" />
+                  </div>
+                  <figcaption className="text-center font-serif text-sm italic text-[var(--color-text-dim)]" style={{ marginTop: '24px' }}>
+                    <strong>Figure {i + 1}.</strong> {t('projectpost.figure_caption') || `Demonstration graphic ${i + 1}`}
+                  </figcaption>
+                </figure>
+              ))
+            ) : project.image && (
               <figure style={{ marginBottom: '80px' }}>
                 <div className="bg-[var(--color-surface)] border border-[var(--color-border-subtle)] p-2">
-                  <img src={project.image} alt="Architecture diagram" className="w-full grayscale contrast-125" />
+                  <img src={project.image} alt="Architecture diagram" className="w-full" />
                 </div>
-                <figcaption className="text-center text-sm italic text-[var(--color-text-dim)]" style={{ marginTop: '24px' }}>
+                <figcaption className="text-center font-serif text-sm italic text-[var(--color-text-dim)]" style={{ marginTop: '24px' }}>
                   <strong>Figure 1.</strong> {t('projectpost.figure_caption')}
                 </figcaption>
               </figure>
             )}
 
-            <h3 className="font-bold text-xl md:text-2xl tracking-tight" style={{ marginTop: '64px', marginBottom: '24px' }}>
-              {t('projectpost.conc_heading')}
-            </h3>
-            <p style={{ marginBottom: '48px' }}>
-              {/* Conclusion content */}
-            </p>
+            {contentConc && (
+              <>
+                <h3 className="font-bold text-xl md:text-2xl tracking-tight" style={{ marginTop: '64px', marginBottom: '24px' }}>
+                  {t('projectpost.conc_heading')}
+                </h3>
+                <p style={{ marginBottom: '48px', whiteSpace: 'pre-line' }}>
+                  {contentConc}
+                </p>
+              </>
+            )}
 
             {/* References */}
             <h3 className="font-bold text-xl md:text-2xl tracking-tight border-b border-[var(--color-border-subtle)]" style={{ marginTop: '64px', marginBottom: '24px', paddingBottom: '16px' }}>
@@ -119,6 +160,13 @@ export default function ProjectPost() {
             </h3>
             
             <ol className="list-decimal pl-6 text-sm md:text-base leading-relaxed text-[var(--color-text-muted)]">
+              {project.pdf && (
+                <li style={{ marginBottom: '24px' }}>
+                  <a href={project.pdf} className="text-[var(--color-text-primary)] hover:underline font-bold" target="_blank" rel="noopener noreferrer">
+                    {t('projectpost.paper_available')}
+                  </a>
+                </li>
+              )}
               {project.github ? (
                 <li style={{ marginBottom: '24px' }}>
                   <a href={project.github} className="text-[var(--color-text-primary)] hover:underline" target="_blank" rel="noopener noreferrer">

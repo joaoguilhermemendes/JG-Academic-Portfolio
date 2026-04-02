@@ -18,7 +18,7 @@
   "hero.linkedin": "LinkedIn",
 
   "lab.section_label": "002 / ACADEMIC LAB",
-  "lab.title": "Study",
+  "lab.title": "",
   "lab.title_accent": "Projects",
   "lab.view_archive": "view_full_archive",
   "lab.view_case": "view_case_study",
@@ -136,5 +136,6 @@
   "projectpost.domain_label": "Primary Domain",
   "projectpost.source_available": "Source code implementation. Available online.",
   "projectpost.source_internal": "Internal Laboratory Documentation (Unpublished code base).",
+  "projectpost.paper_available": "Read full academic paper (PDF format).",
   "projectpost.figure_caption": "Proposed architecture and data flow for the implemented system."
 }

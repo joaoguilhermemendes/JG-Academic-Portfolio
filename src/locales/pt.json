@@ -18,8 +18,8 @@
   "hero.linkedin": "LinkedIn",
 
   "lab.section_label": "002 / LABORATÓRIO ACADÊMICO",
-  "lab.title": "Projetos de",
-  "lab.title_accent": "Estudo",
+  "lab.title": "",
+  "lab.title_accent": "Projetos",
   "lab.view_archive": "ver_arquivo_completo",
   "lab.view_case": "ver_estudo_de_caso",
 
@@ -136,5 +136,6 @@
   "projectpost.domain_label": "Domínio Principal",
   "projectpost.source_available": "Implementação do código-fonte. Disponível online.",
   "projectpost.source_internal": "Documentação Interna de Laboratório (base de código não publicada).",
+  "projectpost.paper_available": "Ler o artigo acadêmico completo (formato PDF).",
   "projectpost.figure_caption": "Arquitetura proposta e fluxo de dados para o sistema implementado."
 }

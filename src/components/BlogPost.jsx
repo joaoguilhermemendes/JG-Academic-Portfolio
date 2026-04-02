@@ -53,6 +53,22 @@ export default function BlogPost() {
             </div>
           </header>
 
+          {/* Optional Project or Github Links */}
+          {(post.project_link || post.github) && (
+            <div className="flex flex-wrap gap-4 mb-8">
+              {post.project_link && (
+                <Link to={post.project_link} className="inline-flex items-center gap-2 px-6 py-3 border border-accent text-accent font-mono text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-colors">
+                  <span>← {isPt ? 'Página do Projeto' : 'Project Page'}</span>
+                </Link>
+              )}
+              {post.github && (
+                <a href={post.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border border-[var(--color-text-primary)] text-[var(--color-text-primary)] font-mono text-xs uppercase tracking-widest hover:bg-[var(--color-text-primary)] hover:text-[var(--color-surface)] dark:hover:text-[#000] transition-colors">
+                  <span>GitHub Repository ↗</span>
+                </a>
+              )}
+            </div>
+          )}
+
           {/* Divider */}
           <div className="opacity-10 text-[var(--color-text-primary)] text-[0.7rem] overflow-hidden whitespace-nowrap select-none" style={{ marginBottom: '24px' }}>
             {'-'.repeat(200)}
@@ -60,9 +76,61 @@ export default function BlogPost() {
 
           {/* Main Content */}
           <div className="text-[0.85rem] md:text-[0.95rem] leading-[2] text-[var(--color-text-muted)]">
-            <p style={{ marginBottom: '24px' }}>
-              {desc}
-            </p>
+            
+            {/* Quote Block */}
+            {post.quote && (
+              <blockquote 
+                className="border-l-4 border-accent text-[var(--color-text-primary)] font-serif italic text-[1.1rem] opacity-90 tracking-wide leading-[1.8]"
+                style={{ padding: '16px 0 16px 32px', marginBottom: '56px', marginTop: '32px' }}
+              >
+                "{isPt && post.quote_pt ? post.quote_pt : post.quote}"
+              </blockquote>
+            )}
+
+            {/* Paragraph Text Mapping */}
+            <div style={{ marginBottom: '64px' }}>
+              {desc.split('\n').filter(p => p.trim() !== '').map((paragraph, idx) => (
+                <p key={idx} style={{ marginBottom: '32px' }} className="text-justify leading-[2.2]">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            {/* Pipeline / Steps Block */}
+            {post.pipeline && (
+              <div style={{ marginBottom: '80px', marginTop: '40px' }}>
+                <div className="text-[0.65rem] text-accent font-black tracking-[0.3em] uppercase" style={{ marginBottom: '32px' }}>
+                  // {isPt ? 'VISÃO GERAL DO PIPELINE TÉCNICO' : 'TECHNICAL PIPELINE OVERVIEW'}
+                </div>
+                <div className="flex flex-col" style={{ gap: '24px' }}>
+                  {(isPt && post.pipeline_pt ? post.pipeline_pt : post.pipeline).map((pipe, idx) => (
+                    <div 
+                      key={idx} 
+                      className="flex flex-col md:flex-row border border-[var(--color-border-subtle)] bg-[var(--color-surface)] shadow-sm"
+                      style={{ padding: '32px 40px', gap: '32px' }}
+                    >
+                      <div className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-[var(--color-text-primary)] font-black" style={{ minWidth: '200px', flexShrink: 0, marginTop: '4px' }}>
+                        {pipe.step}
+                      </div>
+                      <div className="text-[0.9rem] leading-[2] text-[var(--color-text-dim)] flex-1 text-justify">
+                        {pipe.text}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Images Array Component */}
+            {post.images && post.images.length > 0 && (
+              <div className="mt-12 flex flex-col gap-8">
+                {post.images.map((imgUrl, i) => (
+                  <div key={i} className="border border-[var(--color-border-subtle)] p-2 bg-[var(--color-surface)]">
+                    <img src={imgUrl} alt={`Representation ${i}`} className="w-full" />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Footer / EOF */}

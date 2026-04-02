@@ -1,58 +1,82 @@
 export const projectsData = [
   {
     id: 'pharmacology-sql',
-    date: '2025-10-15',
+    date: '2024-11-20',
     tag: 'DATABASE ENGINEERING',
     tag_pt: 'ENGENHARIA DE BANCO DE DADOS',
-    title: 'Pharmacology Data Pipeline',
-    title_pt: 'Pipeline de Dados em Farmacologia',
-    status: 'SQL / Python',
-    desc: 'An elaborated database architecture and analytical project focusing on pharmacology. Designed to structure, query, and analyze complex datasets using advanced SQL relationships and Python for data extraction.',
-    desc_pt: 'Uma arquitetura de banco de dados elaborada e projeto analítico com foco em farmacologia. Projetado para estruturar, consultar e analisar conjuntos de dados complexos usando relações SQL avançadas e Python para extração de dados.',
+    title: 'Pharmacovigilance Signal Detection',
+    title_pt: 'Detecção de Sinais em Farmacovigilância',
+    status: 'SQL / SQLite',
+    desc: 'An exploratory database designed to analyze adverse drug reaction reports from the FDA FAERS dataset. It focuses on identifying patterns between medications, reported side effects, and patient demographics.',
+    desc_pt: 'Um banco de dados exploratório projetado para analisar relatórios de reações adversas a medicamentos do conjunto de dados FAERS da FDA. O foco é identificar padrões entre medicamentos, efeitos colaterais relatados e dados demográficos dos pacientes.',
     link: '/project/pharmacology-sql',
-    github: 'https://github.com/joaoguilhermemendes',
-    image: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=800&auto=format&fit=crop'
+    github: 'https://github.com/joaoguilhermemendes/CS50-SQL-Based-Pharmacovigilance-Signal-Detection',
+    image: 'https://raw.githubusercontent.com/joaoguilhermemendes/CS50-SQL-Based-Pharmacovigilance-Signal-Detection/main/erDiagram.png',
+    
+    content_intro: 'Video overview: https://youtu.be/VF7KbA3MX8o\n\nScope:\nThe purpose of this database is to explore and analyze adverse drug reaction reports from the FDA FAERS dataset, with an emphasis on identifying patterns between medications, reported side effects, and basic patient demographics. The project was designed as an analytical and exploratory tool, rather than a clinical system, aiming to resemble how real-world pharmacovigilance data is structured and queried.\n\nThe database focuses on reported associations, not on individual patients or clinical outcomes. Each record represents a notification of an adverse event associated with a drug within a reported case, reflecting how spontaneous reporting systems like FAERS are typically analyzed.\n\nOut of scope are clinical validation, dosage analysis, treatment outcomes, or any form of causal inference. The database does not attempt to determine whether a drug truly caused an adverse event, only to represent and analyze reported associations, in line with the limitations of spontaneous reporting systems like FAERS.\n\nFunctional Requirements:\nUsers should be able to:\n- Analyze how often specific adverse events are reported for a given drug\n- Compare age and sex profiles of reported cases by medication\n- Identify rare but recurring adverse reactions\n- Out of scope are clinical conclusions, risk prediction, or individual patient follow-up.',
+    
+    content_intro_pt: 'Visão geral em vídeo: https://youtu.be/VF7KbA3MX8o\n\nEscopo:\nO objetivo deste banco de dados é explorar e analisar relatórios de reações adversas a medicamentos do conjunto de dados FAERS da FDA, com ênfase na identificação de padrões entre medicamentos, efeitos colaterais relatados e dados demográficos básicos dos pacientes. O projeto foi concebido como uma ferramenta analítica e exploratória, e não como um sistema clínico, visando assemelhar-se a como os dados de farmacovigilância reais são estruturados e consultados.\n\nO banco de dados foca em associações relatadas, não em pacientes individuais ou resultados clínicos. Cada registro representa uma notificação de evento adverso associado a um medicamento dentro de um caso, refletindo como sistemas de notificação espontânea como o FAERS são normalmente analisados.\n\nFora do escopo estão a validação clínica, análise de dosagem, resultados de tratamento ou inferência causal. O banco de dados não tenta determinar se um medicamento causou o evento, apenas representa associações relatadas, alinhado com as limitações de sistemas espontâneos como o FAERS.\n\nRequisitos Funcionais:\nOs usuários devem ser capazes de:\n- Analisar a frequência com que eventos adversos específicos são relatados para um medicamento\n- Comparar perfis de idade e sexo dos casos relatados por medicamento\n- Identificar reações adversas raras, porém recorrentes\n- Estão fora do escopo conclusões clínicas, predição de risco ou acompanhamento de pacientes individuais.',
+    
+    content_arch: 'Representation - Entities:\nThe database is composed of three main entities:\n- demo: stores demographic information (case_id, sex, age)\n- drug: stores drugs reported in each case (case_id, drug_name)\n- reac: stores reported adverse events (case_id, adverse_event)\n\nThe case_id field acts as a logical identifier linking the three entities. Data types were chosen to remain simple and compatible with SQLite, while still accurately representing the structure of the original dataset. Text fields were preferred for drug names and adverse events due to variability in naming conventions within FAERS data.\n\nRepresentation - Relationships:\nA notification in this database is defined as a unique combination of case, drug, and adverse event. These relationships are resolved through SQL joins rather than additional junction tables, reflecting the structure of the raw reporting data.\n\nTo simplify analysis and avoid repeated joins, a central view consolidates demographic data, drugs, and adverse events into a single logical representation. This design choice prioritizes clarity and analytical usability over strict normalization.\n\nOptimizations:\nSeveral SQL views were created. These views operate on a deduplicated representation of notifications.',
+    
+    content_arch_pt: 'Representação - Entidades:\nO banco de dados é composto por três entidades principais:\n- demo: armazena informações demográficas (case_id, sex, age)\n- drug: armazena medicamentos relatados em cada caso (case_id, drug_name)\n- reac: armazena eventos adversos relatados (case_id, adverse_event)\n\nO campo case_id atua como um identificador lógico conectando as três entidades. Os tipos de dados foram escolhidos para serem compatíveis com o SQLite e refletirem a estrutura original do FAERS. Textos foram preferidos para nomes de medicamentos e eventos devido à variabilidade na nomenclatura.\n\nRepresentação - Relacionamentos:\nUma notificação é definida como a combinação única de caso, medicamento e evento adverso. Esses relacionamentos são resolvidos por joins SQL ao invés de várias tabelas associativas, refletindo a estrutura dos dados reais.\n\nPara simplificar a análise e evitar joins repetitivos, uma view central consolida os dados demográficos, medicamentos e eventos em uma única representação lógica. Essa escolha de design prioriza a clareza e a usabilidade analítica sobre a normalização estrita.\n\nOtimizações:\nVárias views SQL foram criadas operando numa representação de notificações consolidadas e deduplicadas.',
+    
+    content_conc: 'Limitations:\nThis database reflects spontaneous adverse event reports, which are subject to underreporting, duplication, and reporting bias. As a result, frequencies observed in the database do not represent true incidence rates. Additionally, the database does not normalize drug names or adverse events beyond their reported form, which may lead to fragmentation in analysis.\n\nMost importantly, the database does not establish causality between drugs and adverse events. It is intended solely as a structured way to explore reported associations, serving as a learning project in relational database design and applied data analysis rather than a clinical or regulatory tool.\n\nHow to run:\n1. Download sqlite3 and put the .exe file in the root of the project (https://sqlite.org/download.html)\n2. Download FDA.zip and Extract all the files\n3. Run the command `./sqlite3.exe faers.db` to create and open a database\n4. Run `.read schema.sql`\n5. Run `.read queries.sql`',
+    
+    content_conc_pt: 'Limitações:\nEste banco de dados reflete relatórios espontâneos de eventos adversos, que estão sujeitos a subnotificação, duplicação e viés. Como resultado, as frequências observadas não representam taxas de incidência reais. Além disso, o banco de dados não normaliza nomes de medicamentos e eventos adversos além da sua forma original, o que pode fragmentar as análises.\n\nMais importante ainda, o banco de dados não estabelece causalidade entre medicamentos e eventos adversos. Destina-se exclusivamente a ser uma forma estruturada de explorar associações, servindo como um projeto de aprendizado prático em modelagem relacional de dados, não como uma ferramenta clínica ou regulatória.\n\nComo executar:\n1. Baixe o sqlite3 e coloque o arquivo .exe na raiz do projeto (https://sqlite.org/download.html)\n2. Baixe o arquivo FDA.zip e extraia-o\n3. Execute o comando `./sqlite3.exe faers.db` para criar e abrir um banco de dados\n4. Execute `.read schema.sql`\n5. Execute `.read queries.sql`'
   },
   {
-    id: 'public-spending',
-    date: '2024-03-10',
+    id: 'socratic-tutor',
+    date: '2026-04-01',
+    tag: 'ARTIFICIAL INTELLIGENCE',
+    tag_pt: 'INTELIGÊNCIA ARTIFICIAL',
+    title: 'Socratic Tutoring & Epistemic Bias',
+    title_pt: 'Tutoria Socrática & Viés Epistêmico',
+    status: 'LLM / Socratic',
+    desc: 'An upcoming AI-powered tutoring system leveraging Large Language Models (LLMs) to guide students through a Socratic questioning methodology rather than providing direct answers. Currently in active development.',
+    desc_pt: 'Um sistema de tutoria alimentado por IA em desenvolvimento, que utiliza Large Language Models (LLMs) para guiar estudantes através da metodologia de questionamento socrático. Em desenvolvimento ativo.',
+    link: '/project/socratic-tutor',
+    github: 'https://github.com/joaoguilhermemendes/SocraticTutor-LLM',
+    image: '',
+    
+    content_intro: '[ WORK IN PROGRESS ]\nThe SocraticTutor-LLM project is currently in the active research and prototyping phase. The primary objective is to build a tutor that refuses to just give answers away, maintaining an active Socratic dialogue with the user to stimulate critical thinking and fundamental understanding of subjects.',
+    
+    content_intro_pt: '[ TRABALHO EM PROGRESSO ]\nO projeto SocraticTutor-LLM encontra-se atualmente na fase ativa de pesquisa e prototipagem. O objetivo principal é construir um tutor que se recusa a simplesmente entregar as respostas, mantendo um diálogo socrático ativo com o usuário para estimular o pensamento crítico de verdade.',
+    
+    content_arch: '[ ARCHITECTURE PENDING ]\nThe system architecture, prompt engineering strategies, and specific LLM integration details (API routing, context management) will be published here once the core loop is validated and the first stable release is complete.',
+    
+    content_arch_pt: '[ ARQUITETURA PENDENTE ]\nA arquitetura do sistema, estratégias de engenharia de prompt e os detalhes de integração do LLM (roteamento de API, gerenciamento de contexto) serão publicados aqui assim que o ciclo principal for validado e a primeira versão estável estiver concluída.',
+    
+    content_conc: '[ REPOSITORY ACCESS ]\nThe source code repository is currently private / pending public release. Check back later for updates and analytical conclusions.',
+    
+    content_conc_pt: '[ ACESSO AO REPOSITÓRIO ]\nO repositório do código-fonte é atualmente privado / aguarda liberação pública. Volte mais tarde para atualizações e conclusões analíticas.'
+  },
+  {
+    id: 'dengue-analysis',
+    date: '2024-05-20',
     tag: 'DATA SCIENCE',
     tag_pt: 'CIÊNCIA DE DADOS',
-    title: 'Public Spending Analyzer',
-    title_pt: 'Analisador de Gastos Públicos',
-    status: 'Python / Pandas',
-    desc: 'Exploratory data analysis project mapping public spending patterns using open government APIs. Focused on building a strong foundation in Pandas, data cleaning, and Seaborn visualization.',
-    desc_pt: 'Projeto de análise exploratória de dados mapeando padrões de gastos públicos usando APIs governamentais abertas. Focado em construir uma base sólida em Pandas, limpeza de dados e visualização com Seaborn.',
-    link: '/project/public-spending',
-    github: 'https://github.com/joaoguilhermemendes',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 'housing-ml',
-    date: '2024-11-20',
-    tag: 'MACHINE LEARNING',
-    tag_pt: 'MACHINE LEARNING',
-    title: 'Housing Price Estimator',
-    title_pt: 'Estimador de Preços de Imóveis',
-    status: 'Scikit-Learn',
-    desc: 'Academic study project implementing an end-to-end regression pipeline. Includes data cleaning, feature engineering, and model validation to predict housing prices based on demographic data.',
-    desc_pt: 'Projeto acadêmico implementando um pipeline de regressão completo. Inclui limpeza de dados, engenharia de features e validação de modelo para prever preços de imóveis com base em dados demográficos.',
-    link: '/project/housing-ml',
-    github: 'https://github.com/joaoguilhermemendes',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 'algorithm-viz',
-    date: '2023-08-15',
-    tag: 'COMPUTER SCIENCE',
-    tag_pt: 'CIÊNCIA DA COMPUTAÇÃO',
-    title: 'Algorithm Visualizer',
-    title_pt: 'Visualizador de Algoritmos',
-    status: 'JS / Front-End',
-    desc: 'Interactive web application built with HTML, CSS, and JS to visualize the time-complexity of classic data structures, demonstrating my self-taught front-end engineering skills.',
-    desc_pt: 'Aplicação web interativa construída com HTML, CSS e JS para visualizar a complexidade de tempo de estruturas de dados clássicas, demonstrando habilidades autodidatas em engenharia front-end.',
-    link: '/project/algorithm-viz',
-    github: 'https://github.com/joaoguilhermemendes',
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop'
+    title: 'Dengue Seasonality & Insights',
+    title_pt: 'Sazonalidade da Dengue & Insights',
+    status: 'Python / ETL',
+    desc: 'An end-to-end Data ETL and analysis pipeline built to process ten years of Notifiable Dengue cases for Cabo Frio (RJ). It aims to uncover seasonality patterns and strategic insights from the official SINAN platform.',
+    desc_pt: 'Um pipeline completo de ETL para processar dez anos de casos Notificáveis de Dengue em Cabo Frio (RJ). Tem como objetivo descobrir padrões de sazonalidade e insights estratégicos a partir do SINAN.',
+    link: '/project/dengue-analysis',
+    github: 'https://github.com/joaoguilhermemendes/CaboFrioDengue-DataAnalysis',
+    pdf: 'https://github.com/joaoguilhermemendes/CaboFrioDengue-DataAnalysis/blob/main/article/Performance%20of%20Epidemiological%20Surveillance%20-%20Dengue%20Seasonality%20and%20Strategic%20Insights%20-%20Cabo%20Frio%20(2015-2024).pdf',
+    image: '/dengue-chart.png',
+
+    
+    content_intro: 'Abstract:\nThis repository documents and executes the Extract, Transform, Load (ETL) pipeline to generate a clean, temporally coherent dataset of Notifiable Dengue cases for the municipality of Cabo Frio, Rio de Janeiro, sourced from the official Brazilian SINAN platform.\n\nThe primary objective of this data preparation pipeline is to construct a standardized, analysis-ready file covering ten years (2015 to 2024). This dataset specifically enables the reproducible analysis of seasonality patterns and temporal trends.\n\nContext:\nDengue fever remains one of the major vector-borne diseases in Brazil. This project aims to:\n- Consolidate dengue records across ten consecutive years.\n- Establish a clean, structured dataset derived from SINAN.\n- Identify the typical seasonal risk window and anomalies.\n- Enable reproducible descriptive analysis.',
+    
+    content_intro_pt: 'Resumo:\nEste repositório documenta e executa o pipeline de Extração, Transformação e Carga (ETL) para gerar um conjunto de dados limpo e temporalmente coerente de casos Notificáveis de Dengue para o município de Cabo Frio, vindos da plataforma brasileira SINAN.\n\nO objetivo principal deste pipeline é construir um arquivo padronizado, pronto para análise, abrangendo dez anos (2015 a 2024). Este subconjunto permite especificamente a análise reprodutível de padrões de sazonalidade e tendências temporais.\n\nContexto:\nA dengue continua sendo uma das principais doenças transmitidas por vetores no Brasil. Este projeto tem como objetivo:\n- Consolidar registros de dengue em dez anos consecutivos.\n- Estabelecer um dataset limpo e estruturado derivado do SINAN.\n- Identificar a janela de risco sazonal típica e eventuais anomalias.\n- Viabilizar uma análise descritiva rica e reproduzível.',
+    
+    content_arch: 'Methodology & Data Stages:\n\nStage 1: Data Acquisition\nAutomated ingestion of raw data. Downloads annual archives of national dengue case data from the openDataSUS S3 bucket.\n\nStage 2: Geographic Filtering and Reduction\nPerforms the first major transformation, filtering the national records down to the target municipality (Cabo Frio). Applies rigid filtering and reduces the feature space down to critical epidemiological variables such as First Symptoms, Age, Sex, Classification, and Case Outcome.\n\nStage 3: Harmonization and Consolidation\nMerges intermediate annual files into a final master dataset and ensures temporal coherence. Performs critical type conversions to generate the final analysis-ready file.\n\nStage 4: Seasonality Analysis and Strategic Visualizations\nLoads the master CSV file, aggregates cases by Year and Month, and plots strategic heatmaps and analytical curves.',
+    
+    content_arch_pt: 'Metodologia e Fases dos Dados:\n\nEstágio 1: Aquisição de Dados\nIngestão automatizada de dados brutos. Faz o download de arquivos anuais de casos nacionais de dengue do bucket S3 openDataSUS.\n\nEstágio 2: Filtragem Geográfica e Redução\nRealiza a primeira grande transformação, filtrando registros nacionais para o município alvo (Cabo Frio). Aplica filtragem rígida e reduz o espaço de features para focar nas variáveis críticas, como Primeiros Sintomas, Idade, Classificação e Desfecho.\n\nEstágio 3: Harmonização e Consolidação\nMescla os arquivos anuais intermediários em um dataset mestre final, garantindo coerência temporal. Realiza conversões de tipo críticas para gerar o arquivo pronto para análise.\n\nEstágio 4: Análise de Sazonalidade e Visualizações\nCarrega o arquivo mestre, agrega os casos por ano e mês, e produz gráficos estratégicos (mapas de calor) e as curvas analíticas que descrevem o comportamento sazonal.',
+    
+    content_conc: 'Strategic Insights:\nThe final descriptive analysis provides strategic insights by contrasting the timing and speed of major epidemic outbreaks (e.g., 2019 vs. 2024) to enhance local epidemic preparedness and surveillance actions. The clean dataset makes it possible to rapidly track anomalies in disease propagation.\n\nExecution:\nThe project relies on standard scientific Python libraries. The notebooks are structured to be executed sequentially from Data Acquisition (Notebook 01) to the final visualizations (Notebook 04).',
+    
+    content_conc_pt: 'Insights Estratégicos:\nA análise descritiva final fornece percepções estratégicas ao contrastar o tempo e a velocidade dos principais surtos epidêmicos (ex. 2019 vs 2024), de modo a aprimorar as ações locais de preparação da vigilância em saúde. Com a nova base limpa, é possível rastrear rapidamente as anomalias na propagação.\n\nExecução:\nO projeto depende de bibliotecas científicas de Python padrão. Os notebooks estão estruturados para execução sequencial, começando na Aquisição (Notebook 01) até chegar nas visualizações gráficas e tabelas finais (Notebook 04).'
   }
 ];
