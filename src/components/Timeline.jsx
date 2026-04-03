@@ -37,7 +37,7 @@ export default function Timeline() {
     <section id="timeline" className="transition-colors duration-300" style={{ paddingTop: 'clamp(60px, 12vw, 130px)', paddingBottom: 'clamp(60px, 12vw, 130px)' }}>
       <div className="container-main">
         {/* Header */}
-        <motion.div {...fadeUp(0)} className="mb-16 md:mb-32 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+        <motion.div {...fadeUp(0)} className="mb-8 md:mb-4 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div>
             <div className="meta-label mb-6 text-[var(--color-text-dim)]">{t('timeline.section_label')}</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-mono tracking-tighter text-[var(--color-text-primary)] uppercase">
@@ -50,7 +50,7 @@ export default function Timeline() {
         </motion.div>
 
         {/* Timeline List */}
-        <div className="flex flex-col gap-y-16 md:gap-y-48 relative">
+        <div className="flex flex-col gap-y-12 md:gap-y-24 relative mt-[50px] md:mt-[100px]">
           <div className="absolute lg:left-[calc(260px+4rem)] top-0 bottom-4 w-[1px] bg-accent hidden lg:block opacity-20" />
 
           {EVENTS.map((ev, idx) => (

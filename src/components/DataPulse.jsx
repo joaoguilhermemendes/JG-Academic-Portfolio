@@ -5,7 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 const SKILLS = [
   // DATA SCIENCE
   { id: 'data', name: 'python',               meta: 'v3.12',       note_en: 'primary language for scripting & analysis',              note_pt: 'linguagem principal para scripts e análise' },
-  { id: 'data', name: 'sql / rdbms',          meta: 'PostgreSQL',  note_en: 'database architecture, modeling & complex querying',     note_pt: 'arquitetura de banco de dados, modelagem e consultas complexas' },
+  { id: 'data', name: 'sql / rdbms',          meta: 'SQLite',      note_en: 'database architecture, modeling & complex querying',     note_pt: 'arquitetura de banco de dados, modelagem e consultas complexas' },
   { id: 'data', name: 'pandas / numpy',       meta: 'v2.x',        note_en: 'data manipulation & numerical operations',               note_pt: 'manipulação de dados e operações numéricas' },
   { id: 'data', name: 'scikit-learn',         meta: 'v1.4',        note_en: 'foundational machine learning pipelines',                note_pt: 'pipelines fundamentais de machine learning' },
   { id: 'data', name: 'matplotlib / seaborn', meta: 'current',     note_en: 'exploratory data visualization',                        note_pt: 'visualização exploratória de dados' },
@@ -16,7 +16,7 @@ const SKILLS = [
   { id: 'research', name: 'data structuring',    meta: 'methodology',  note_en: 'cleaning and normalizing raw datasets',              note_pt: 'limpeza e normalização de conjuntos de dados brutos' },
   // ENGINEERING
   { id: 'engineering', name: 'html / css / js',  meta: 'ES2024',       note_en: 'core web development',                              note_pt: 'desenvolvimento web fundamental' },
-  { id: 'engineering', name: 'react / tailwind', meta: 'v18.x',        note_en: 'building functional web interfaces',                 note_pt: 'construção de interfaces web funcionais' },
+  { id: 'engineering', name: 'bootstrap / tailwind', meta: 'v5.x',        note_en: 'building functional web interfaces',                 note_pt: 'construção de interfaces web funcionais' },
   { id: 'engineering', name: 'git / github',     meta: 'current',      note_en: 'version control & collaboration',                   note_pt: 'controle de versão e colaboração' },
   { id: 'engineering', name: 'linux / bash',     meta: 'terminal',     note_en: 'system navigation & scripting',                     note_pt: 'navegação de sistema e scripts' },
 ];
@@ -53,12 +53,15 @@ export default function DataPulse() {
 
         {/* Header block */}
         <div style={{ marginBottom: 'clamp(32px, 6vw, 60px)' }}>
-          <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-4 uppercase">{t('pulse.section_label')}</div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9] mb-6">
-            {t('pulse.title')} <span className="text-accent italic">{t('pulse.title_accent')}</span>
+          <div className="text-[0.65rem] text-accent font-black tracking-[0.4em] mb-6 uppercase">{t('pulse.section_label')}</div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-[var(--color-text-primary)] uppercase leading-[0.9]">
+            {t('pulse.title')}<br /><span className="text-accent italic">{t('pulse.title_accent')}</span>
           </h2>
-          {/* Filter nav */}
-          <div className="flex flex-wrap gap-4 md:gap-6 items-center text-[0.75rem] font-black tracking-[0.15em] mt-8 md:mt-16">
+        </div>
+
+        {/* Filter nav */}
+        <div style={{ marginBottom: 'clamp(24px, 5vw, 48px)' }}>
+          <div className="flex flex-wrap gap-4 text-[0.7rem] font-black tracking-[0.15em]">
             {SECTIONS.map(s => (
               <button
                 key={s.id}
@@ -68,7 +71,7 @@ export default function DataPulse() {
                 {t(s.labelKey)}
               </button>
             ))}
-            <span className="ml-auto text-[0.6rem] text-[var(--color-text-muted)] hidden md:block">
+            <span className="ml-auto text-[0.6rem] text-[var(--color-text-muted)] self-center hidden sm:block">
               {filtered.length}{t('pulse.entries_found')}
             </span>
           </div>
@@ -160,20 +163,30 @@ function SkillRow({ skill, i, language }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.25, delay: i * 0.04 }}
-      className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-0 border-b border-[var(--color-border-subtle)] py-8 hover:bg-transparent transition-colors cursor-default"
+      className="group flex flex-col md:flex-row md:items-baseline border-b border-[var(--color-border-subtle)] py-6 md:py-8 hover:bg-transparent transition-colors cursor-default"
     >
-      <div className="flex items-baseline">
-        <span className="text-[var(--color-text-muted)] text-[0.75rem] w-8 shrink-0 select-none group-hover:text-accent dark:group-hover:text-accent transition-colors">→</span>
-        <span className="text-[1rem] md:text-[1.1rem] font-black text-[var(--color-text-primary)] uppercase tracking-tight group-hover:text-accent dark:group-hover:text-accent transition-colors md:w-64 shrink-0">
-          {skill.name}
+      {/* Mobile Top Row / Desktop Left Column */}
+      <div className="flex items-center md:items-baseline justify-between md:justify-start w-full md:w-auto mb-2 md:mb-0">
+        <div className="flex items-baseline">
+          <span className="text-[var(--color-text-muted)] text-[0.75rem] w-6 md:w-8 shrink-0 select-none group-hover:text-accent dark:group-hover:text-accent transition-colors">→</span>
+          <span className="text-[1rem] md:text-[1.1rem] font-black text-[var(--color-text-primary)] uppercase tracking-tight group-hover:text-accent dark:group-hover:text-accent transition-colors md:w-[15rem] shrink-0">
+            {skill.name}
+          </span>
+        </div>
+        
+        {/* Mobile-only Badge */}
+        <span className="md:hidden border border-[var(--color-border-subtle)] text-[var(--color-text-dim)] group-hover:border-accent group-hover:text-accent text-[0.55rem] font-black tracking-[0.1em] uppercase px-2 py-0.5 whitespace-nowrap ml-4 transition-colors">
+          {skill.meta}
         </span>
       </div>
 
-      <span className="text-[0.7rem] text-[var(--color-text-dim)] w-40 shrink-0 hidden md:block">
+      {/* Desktop-only Meta Column */}
+      <span className="text-[0.7rem] text-[var(--color-text-dim)] w-32 shrink-0 hidden md:block">
         {skill.meta}
       </span>
 
-      <span className="text-[0.8rem] text-[var(--color-text-dim)] leading-snug group-hover:text-black dark:group-hover:text-gray-300 transition-colors pl-8 md:pl-0">
+      {/* Description */}
+      <span className="text-[0.8rem] text-[var(--color-text-dim)] leading-snug group-hover:text-[var(--color-text-primary)] transition-colors pl-6 md:pl-0 mt-1 md:mt-0 flex-1">
         {note}
       </span>
     </motion.div>
