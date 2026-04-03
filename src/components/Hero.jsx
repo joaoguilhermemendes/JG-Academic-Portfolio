@@ -103,7 +103,7 @@ export default function Hero() {
                 <motion.p {...fadeUp(0.2)} className="text-base md:text-xl lg:text-2xl font-normal text-[var(--color-text-muted)] leading-snug md:leading-tight mb-0 max-w-[38ch]" dangerouslySetInnerHTML={{ __html: t('hero.description') }} />
                 
                 <motion.div {...fadeUp(0.3)} className="flex flex-wrap items-center gap-4 sm:gap-8 md:gap-12" style={{ marginTop: 'clamp(24px, 5vw, 48px)' }}>
-                  <a href="https://lattes.cnpq.br/9460711429082348" target="_blank" rel="noreferrer" className="btn-cv text-[0.8rem] px-6 py-3 font-mono tracking-widest font-bold transition-all uppercase cursor-pointer">
+                  <a href="/CV.pdf" target="_blank" rel="noreferrer" className="btn-cv text-[0.8rem] px-6 py-3 font-mono tracking-widest font-bold transition-all uppercase cursor-pointer">
                     {t('hero.download_cv')}
                   </a>
                   <a href="https://github.com/joaoguilhermemendes" target="_blank" rel="noreferrer" className="text-[0.8rem] font-mono tracking-widest font-bold text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)] transition-all uppercase">
